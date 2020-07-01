@@ -1,0 +1,105 @@
+'''
+PART1:
+
+SELECT email from customer where
+first_name='Nancy' AND
+last_name='Thomas'
+
+SELECT description from film where
+title='Outlaw Hanky'
+
+SELECT phone from address where address='259 Ipoh Drive'
+
+SELECT store_id, first_name, last_name FROM customer
+ORDER BY store_id DESC, first_name ASC
+
+SELECT * FROM payment WHERE amount != 0.00 
+ORDER BY payment_date DESC LIMIT 5
+
+SELECT customer_id FROM payment ORDER BY payment_date ASC LIMIT 10
+
+SELECT title FROM film ORDER BY length ASC LIMIT 5
+
+SELECT * FROM payment WHERE payment_date 
+BETWEEN '2007-02-01' AND '2007-02-15'
+
+#Grabs customers with first name J and last name S:
+SELECT * FROM customer 
+WHERE first_name LIKE 'J%' and last_name like'S%'
+#ILIKE is not case sensitive.
+
+#gets number of payments greater than 5:
+SELECT count(amount) from payment where amount >5
+
+#gets all actors with first name that begins with P:
+SELECT * from actor where first_name LIKE 'P%'
+
+#Get number of districts:
+SELECT COUNT(DISTINCT(district)) FROM address;
+
+#https://www.programmerinterview.com/database-sql/retrieve-unique-rows-with-distinct/:
+SELECT DISTINCT DISTRICT FROM address;
+
+#Get all films with replacement_cost between 5 and 15:
+select DISTINCT COUNT(*) from film WHERE rating='R' AND 
+replacement_cost BETWEEN 5 and 15
+
+#names with Truman in the title somewhere:
+select DISTINCT COUNT(*) from film where title LIKE '%Truman%'
+
+#Using aggregate functions like max, min, sum:
+SELECT ROUND(AVG(replacement_cost),2)FROM film
+
+#Retrieves the customers with the highest payment amounts:
+SELECT customer_id, SUM(amount) FROM payment
+GROUP BY customer_id
+ORDER BY sum(amount) DESC
+
+#What staff member had the most amount of sales? By transactions:
+SELECT staff_id, COUNT(*) FROM payment GROUP BY staff_id
+
+SELECT rating, AVG(replacement_cost) from film GROUP BY rating
+
+#Retrieve 5 highest paying customers:
+select customer_id, sum(amount) from payment GROUP BY customer_id ORDER BY sum(amount) DESC LIMIT 5
+
+#Using basic HAVING statement:
+SELECT customer_id, sum(amount) FROM payment 
+GROUP BY customer_id
+HAVING SUM(amount) > 100
+
+SELECT store_id, COUNT(customer_id) FROM customer
+GROUP BY store_id
+HAVING COUNT(*) > 300
+
+#Customers with more than 40 transactions:
+SELECT customer_id, COUNT(*) FROM payment GROUP BY customer_id
+HAVING COUNT(*)>=40
+
+#staff_id must be 2 and customer must have spent more than 100:
+select customer_id, SUM(amount) from payment where staff_id=2 
+GROUP BY customer_id
+HAVING SUM(amount)>100
+
+1. Return the customer IDs of customers who have spent at least $110 with the staff member who has an ID of 2.
+
+SELECT customer_id, SUM(amount) from PAYMENT where staff_id=2 
+GROUP BY customer_id
+HAVING SUM(amount)>110
+
+2. How many films begin with the letter J?
+SELECT DISTINCT COUNT(*) from film
+WHERE title LIKE 'J%'
+
+
+3. What customer has the highest customer ID number whose name starts with an 'E' 
+and has an address ID lower than 500?
+
+SELECT first_name, last_name, customer_id FROM customer WHERE first_name LIKE 'E%'
+AND address_id < 500
+ORDER BY customer_id DESC
+LIMIT 1
+
+Originally I did this (which is technically still right):
+SELECT max(customer_id) FROM customer WHERE...
+'''
