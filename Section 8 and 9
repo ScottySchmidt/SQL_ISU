@@ -1,0 +1,25 @@
+#ASSESSMENT3
+
+CREATE TABLE school(
+student_id SERIAL PRIMARY KEY,
+first_name VARCHAR(50) NOT NULL,
+last_name VARCHAR(50) NOT NULL,
+homeroom integer,
+department VARCHAR(50) NOT NULL,
+email VARCHAR(50) UNIQUE,
+phone VARCHAR(25) UNIQUE NOT NULL,
+grad_year interger,
+);
+
+INSERT INTO school (first_name, last_name, homeroom, department, email, phone)
+VALUES('SCOTT', 'SCHMIDT', 33, 'ISU', sschmidt@.com, '1237777', 2031)
+
+CREATE TABLE teacher(
+teacher_id SERIAL PRIMARY KEY,
+first_name VARCHAR(50) NOT NULL,
+last_name VARCHAR(50) NOT NULL,
+homeroom integer,
+department VARCHAR(50),
+email VARCHAR(20) UNIQUE,
+phone VARCHAR(25) UNIQUE,
+);
