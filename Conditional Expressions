@@ -1,0 +1,18 @@
+CONDITIONAL EXPRESSIONS SECTION:
+
+SELECT a, 
+CASE WHEN a =1 THEN 'one'
+     WHEN a =2 THEN 'two'
+ELSE 'other' as label
+END
+FROM test;
+
+
+SEELCT customer_id
+CASE
+	WHEN (customer_id <= 100) THEN 'PREMIUM'
+	WHEN (customer_id BETWEEN 100 and 200) THEN 'PLUS'
+	ELSE 'Normal'
+END
+FROM customer
+
