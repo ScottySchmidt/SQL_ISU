@@ -16,3 +16,34 @@ CASE
 END
 FROM customer
 
+Caolesce are used to handle NULL values.
+For exaxmple, it can replace a null value with a 0 when dealing with price-discount.
+
+SELECT item, (price-discount) AS final from table.
+However, this will not count for null items.
+Instead we use:
+SELECT item, (price-COALESCE(discount,0)) AS final FROM table
+
+-------------------------
+CAST
+SELECT CAST('5' AS INTEGER)
+Can turn ints into string and viceversa. 
+
+NULLIF
+can return null if there is a division by zero error.
+
+SELECT(
+SUM(CASE WHEN department = 'A' THEN 1 ELSE 0 END) /
+SUM(CASE WHEN department = 'B' THEN 1 ELSE 0 END)
+) AS department_ratio
+FROM depts
+
+-------------------------------
+VIEW
+A view is a database object that is stored of a stored query.
+Can be accessed as a virtual table in PostGreSQL.
+
+CREATE VIEW customer_info AS
+SELECT first_name, last_name, address FROM customer
+INNER JOIN address
+ON customer.address_id = address.address_id
