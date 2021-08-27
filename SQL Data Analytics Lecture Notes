@@ -1,0 +1,15 @@
+LECTURE NOTES
+
+Data Definition Language (DDL)
+-Create, alter, drop, rename, truncate.
+
+Data Manipulation Language (DML)
+-Select from sales
+-using Insert
+
+Data Control Language (DCL)
+-Give rights to a specific person such as:
+GRANT type_of_permission ON database_name.table_name TO 'username'@'localhost'
+
+Database Administrators
+-People who have complete rights to a database
