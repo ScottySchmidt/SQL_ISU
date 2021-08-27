@@ -13,3 +13,12 @@ GRANT type_of_permission ON database_name.table_name TO 'username'@'localhost'
 
 Database Administrators
 -People who have complete rights to a database
+
+-------------
+BASIC DATABASE TERMINOLOGY:
+
+Relational database = MySQL
+Non-relational database = Mathematics and Programming
+
+Excel < 1 million rows
+Relational Database controls who changed what in the data making it reliable. 
