@@ -24,4 +24,7 @@ Excel < 1 million rows
 Relational Database controls who changed what in the data making it reliable. 
 
 --------------------
-
+Relational schemas:
+Use || for one
+Use  > for many
+For example, there can be many purchases but one customer, but only one customer.
