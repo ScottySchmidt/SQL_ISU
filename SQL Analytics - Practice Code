@@ -1,5 +1,6 @@
 Select the information from the “dept_no” column of the “departments” table:
-select dept_no from department 
+SELECT dept_no FROM department 
 
 Select all data from the “departments” table:
-Select * from departments
+SELECT * FROM departments
+
