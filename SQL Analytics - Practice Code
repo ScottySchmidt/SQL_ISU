@@ -4,3 +4,21 @@ SELECT dept_no FROM department
 Select all data from the “departments” table:
 SELECT * FROM departments
 
+Select all people from the “employees” table whose first name is “Elvis”.
+
+
+Retrieve a list with all female employees whose first name is Kellie. 
+
+
+Retrieve a list with all employees whose first name is either Kellie or Aruna.
+
+
+Retrieve a list with all female employees whose first name is either Kellie or Aruna.
+
+
+Use the IN operator to select all individuals from the “employees” table, whose first name is either “Denis”, or “Elvis”.
+
+
+Extract all records from the ‘employees’ table, aside from those with employees named John, Mark, or Jacob.
+
+
