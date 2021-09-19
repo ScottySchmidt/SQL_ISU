@@ -1,0 +1,4 @@
+**Select the information from the “dept_no” column of the “departments” table.
+Select all data from the “departments” table. **
+
+select dept_no from departments 
