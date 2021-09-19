@@ -5,7 +5,7 @@ Select all data from the “departments” table:
 SELECT * FROM departments
 
 Select all people from the “employees” table whose first name is “Elvis”.
-
+SELECT people FROM employees WHERE first_name = "Elvis"
 
 
 Retrieve a list with all female employees whose first name is Kellie. 
