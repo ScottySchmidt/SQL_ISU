@@ -12,7 +12,7 @@ PRIMARY KEY (purchase_number)
 FOREIGN KEY (customer_id) REFERENCES customers(customer_id) ON DELETE CASCADE
 )
 ------------------------------
-
+PRIMARY KEY CONSTRINT - Excercise 
 
 Drop the “customers” table and re-create it using the following code:
 
