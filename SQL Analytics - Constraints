@@ -12,9 +12,8 @@ PRIMARY KEY (purchase_number)
 FOREIGN KEY (customer_id) REFERENCES customers(customer_id) ON DELETE CASCADE
 )
 ------------------------------
-PRIMARY KEY CONSTRINT - Excercise 
-
-Drop the “customers” table and re-create it using the following code:
+PRIMARY KEY CONSTRINT - Excercise:
+Drop the “customers” table and re-create it using the following code
 
 CREATE TABLE customers                                                              
 (  
@@ -55,3 +54,29 @@ item_code varchar (255),
 item varchar (255),
 
 -------------------------------------------
+FOREIGN KEY constraint - Part II exercise: 
+Looking to the next few lectures of the course, drop all tables from the “Sales” database in the following order:
+first drop “sales”, then “customers”, “items”, and finally “companies”.
+
+DROP TABLE sales;
+DROP TABLE customers;
+DROP TABLE items;
+DROP TABLE companies;
+
+-----------------------------------------
+UNIQUE Constraint - excercise:
+Drop the “customers” table, and then recreate it using the following code:
+
+CREATE TABLE customers (
+    customer_id INT AUTO_INCREMENT,
+    first_name VARCHAR(255),
+    last_name VARCHAR(255),
+    email_address VARCHAR(255),
+    number_of_complaints INT,
+PRIMARY KEY (customer_id)
+);
+
+-----------------------------------------
+
+
+
