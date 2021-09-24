@@ -1,6 +1,6 @@
 CONSTRAINTS - Specific rules, limit, that we define our tables.
 The role of costraints is to outline the existing relationship between tables in database.
-i.e. NOT NULL.
+i.e. NOT NULL, default, unique, primary key, foreign key
 
 CREATE TABLE sales 
 (
