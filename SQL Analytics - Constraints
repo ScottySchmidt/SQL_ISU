@@ -58,6 +58,7 @@ FOREIGN KEY constraint - Part II exercise:
 Looking to the next few lectures of the course, drop all tables from the “Sales” database in the following order:
 first drop “sales”, then “customers”, “items”, and finally “companies”.
 
+SOLUTION:
 DROP TABLE sales;
 DROP TABLE customers;
 DROP TABLE items;
@@ -65,7 +66,7 @@ DROP TABLE companies;
 
 -----------------------------------------
 UNIQUE Constraint - excercise:
-Drop the “customers” table, and then recreate it using the following code:
+Drop the “customers” table, and then recreate it using the following code.
 
 CREATE TABLE customers (
     customer_id INT AUTO_INCREMENT,
@@ -76,7 +77,20 @@ CREATE TABLE customers (
 PRIMARY KEY (customer_id)
 );
 
+SOLUTION:
+
 -----------------------------------------
+DEFAULT Constraint - excercise:
+Recreate the “companies” table
+(company_id – VARCHAR of 255,  
+company_name – VARCHAR of 255,  
+headquarters_phone_number – VARCHAR of 255),    
+This time setting the “headquarters phone number” to be the unique key, and default value of the company's name to be “X”.   
+After you execute the code properly, drop the “companies” table.
+
+SOLUTION:
 
 
+
+-----------------------------------------
 
