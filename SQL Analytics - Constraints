@@ -77,7 +77,12 @@ CREATE TABLE customers (
 PRIMARY KEY (customer_id)
 );
 
+Then run the following code that will add a “gender” column in the “customers” table, and will then insert a new record in it.
+Don’t worry if you don’t understand the meaning of the code perfectly – we will discuss these structures later on in the course in more detail. 
+We will just use them now to insert a row in our “customers” table.
+
 SOLUTION:
+
 
 -----------------------------------------
 DEFAULT Constraint - excercise:
