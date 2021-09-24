@@ -1,3 +1,18 @@
+CONSTRAINTS - Specific rules, limit, that we define our tables.
+The role of costraints is to outline the existing relationship between tables in database.
+i.e. NOT NULL.
+
+CREATE TABLE sales 
+(
+    purchase_number INT AUTO_INCREMENT,
+    date_of_purchase DATE,
+    customer_id INT,
+    item_code VARCHAR(10)
+PRIMARY KEY (purchase_number)
+)
+------------------------------
+
+
 Drop the “customers” table and re-create it using the following code:
 
 CREATE TABLE customers                                                              
@@ -9,8 +24,6 @@ CREATE TABLE customers
     number_of_complaints int,  
 primary key (customer_id)  
 );  
-
-   
 
 Then, create the “items” table  
 (columns - data types:  
@@ -24,6 +37,20 @@ company_name – VARCHAR of 255,
 headquarters_phone_number – integer of 12). 
 
 
+DROP TABLE customers
+CREATE TABLE customers
+(
+customer_id INT,
+first_name varchar(255),
+last_name varchar(255),
+email_addresss varchar(255),
+number_complaints int.
+)
 
+CREATE TABLE
+items 
+(
+item_code varchar (255),
+item varchar (255),
 
 -------------------------------------------
