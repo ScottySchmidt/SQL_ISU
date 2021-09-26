@@ -9,7 +9,7 @@ SELECT people FROM employees WHERE first_name = "Elvis"
 
 
 Retrieve a list with all female employees whose first name is Kellie. 
-
+SELECT * FROM employees WHERE gender="female" and first_name="Kellie"+
 
 
 
