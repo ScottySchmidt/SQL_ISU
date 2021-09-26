@@ -32,8 +32,8 @@ SELECT * FROM records FROM employees WHERE name in (John, Mark, Jacob)
 
 Extract all individuals from the ‘employees’ table whose first name contains “Jack”.
 Once you have done that, extract another list containing the names of employees that do not contain “Jack”.
-
-
+SELECT * FROM employees WHERE first_name="Jack";
+SELECT * FROM employees WHERE first_name NOT IN (Jack);
 
 
 Select all the information from the “salaries” table regarding contracts from 66,000 to 70,000 dollars per year.
