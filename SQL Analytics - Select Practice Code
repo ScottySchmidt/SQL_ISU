@@ -18,7 +18,7 @@ SELECT * FROM employees where first_name="Kellie" or first_name="Aruna"
 
 
 Retrieve a list with all female employees whose first name is either Kellie or Aruna.
-
+SELECT * FROM employees where gender="female" and first_name="Kellie" or first_name="Aruna"
 
 
 Use the IN operator to select all individuals from the “employees” table, whose first name is either “Denis”, or “Elvis”.
