@@ -41,6 +41,7 @@ Retrieve a list with all individuals whose employee number is not between ‘100
 Select the names of all departments with numbers between ‘d003’ and ‘d006’
 
 SELECT * FROM salaries HAVING contracts BETWEEN 66,000 AND 70,000
+SELECT * FROM salaries HAVING employee_number NOT BETWEEN 10004 and 10012.
 
 
 
