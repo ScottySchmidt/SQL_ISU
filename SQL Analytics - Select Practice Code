@@ -43,7 +43,7 @@ Select the names of all departments with numbers between ‘d003’ and ‘d006�
 
 
 Select the names of all departments whose department number value is not null.
-
+SELECT * FROM departments WHERE number is NOT null
 
 
 
