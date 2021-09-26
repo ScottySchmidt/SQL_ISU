@@ -9,13 +9,12 @@ SELECT people FROM employees WHERE first_name = "Elvis"
 
 
 Retrieve a list with all female employees whose first name is Kellie. 
-SELECT * FROM employees WHERE gender="female" and first_name="Kellie"+
+SELECT * FROM employees WHERE gender="female" and first_name="Kellie".
 
 
 
 Retrieve a list with all employees whose first name is either Kellie or Aruna.
-
-
+SELECT * FROM employees where first_name="Kellie" or first_name="Aruna"
 
 
 Retrieve a list with all female employees whose first name is either Kellie or Aruna.
