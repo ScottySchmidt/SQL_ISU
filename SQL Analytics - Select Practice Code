@@ -40,10 +40,13 @@ Select all the information from the “salaries” table regarding contracts fro
 Retrieve a list with all individuals whose employee number is not between ‘10004’ and ‘10012’.
 Select the names of all departments with numbers between ‘d003’ and ‘d006’
 
+SELECT * FROM salaryes WHERE contracts IN BETWEEN 66,000 AND 70,000
+
+
 
 
 Select the names of all departments whose department number value is not null.
-SELECT * FROM departments WHERE number is NOT null
+SELECT * FROM departments WHERE number is NOT NUL
 
 
 
