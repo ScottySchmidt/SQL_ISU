@@ -1,4 +1,4 @@
-LECTURE NOTES SQL Data Anaytics Course 
+LECTURE NOTES SQL Data Anaytics Course on Udemy
 ------------------
 Data Definition Language (DDL)
 -Create, alter, drop, rename, truncate.
@@ -28,3 +28,9 @@ Relational schemas:
 Use || for one
 Use  > for many
 For example, there can be many purchases but one customer, but only one customer.
+
+
+
+----------------
+CREATE DATABASE IF NOT EXISTS Sales;
+
