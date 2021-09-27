@@ -33,4 +33,7 @@ For example, there can be many purchases but one customer, but only one customer
 
 ----------------
 CREATE DATABASE IF NOT EXISTS Sales;
+CREATE SCHEMA IF NOT EXISTS Sales;
+
+
 
