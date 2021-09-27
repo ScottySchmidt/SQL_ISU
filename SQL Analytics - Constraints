@@ -82,7 +82,10 @@ Don’t worry if you don’t understand the meaning of the code perfectly – we
 We will just use them now to insert a row in our “customers” table.
 
 SOLUTION:
+ALTER TABLE customers ADD gender varchar(10)
 
+Reference:
+https://www.w3schools.com/sql/sql_alter.asp
 
 -----------------------------------------
 DEFAULT Constraint - excercise:
