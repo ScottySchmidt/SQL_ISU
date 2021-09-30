@@ -1,11 +1,11 @@
 Three data modeling problems
 
-Relational schema
+RELATIONAL SCHEMA
 #29 Workbook
 Conduct is one to many, therefore conduct does NOT become an entity.
 Includes is many to many so it becomes an entity.
 Perform only gets #soloID, #CID, and #concertNum as a foreign key. It does NOT get conductor as a foreign key because they are NOT connected.
 
-Normalization
+NORMALIZATION
 
 Can create a 8.5 by 11 cheat sheet
