@@ -7,5 +7,6 @@ Includes is many to many so it becomes an entity.
 Perform only gets #soloID, #CID, and #concertNum as a foreign key. It does NOT get conductor as a foreign key because they are NOT connected.
 
 NORMALIZATION
+similiar to #32 in workbook, page 22
 
-Can create a 8.5 by 11 cheat sheet
+Can create a 8.5 x 11 cheat sheet for midterm 
