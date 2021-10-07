@@ -3,6 +3,9 @@ Let it contain the following 5 columns: customer_id, first_name, last_name, emai
 Let the data types of customer_id and number_of_complaints be integer, while the data types of all other columns be VARCHAR of 255.
 
 SOLUTION:
-CREATE SALES (customer_id INT, first_name VARCHAR(255), last_name VARCHAR(255), email_address VARCHAR(255), numer_of_complaints INT)
+CREATE TABLE customers (customer_id INT, first_name VARCHAR(255), last_name VARCHAR(255), email_address VARCHAR(255), numer_of_complaints INT);
+
+
+
 
 
