@@ -11,12 +11,11 @@ SELECT * FROM SHARE_T where shrprice<1;
 
 
 5.	List the name and price of all shares with a price of at least $10.
-SELECT * FROM SHARE_T where shrprice>10;
+SELECT * FROM SHARE_T where shrprice>10; 
 
 
 6.	List the name, share price, share holding, and total value of shares held (this is number of shares times share price).
-
-
+SELECT shrcode, shrfirm, shrprice, shrqty, shrprice*shrqty as TOTAL_VALUE FROM SHARE_T;
 
 
 7.	List the name of all shares with a yield exceeding 5 percent (yield is equal to the dividend divided by the price).
