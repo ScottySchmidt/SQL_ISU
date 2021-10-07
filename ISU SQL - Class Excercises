@@ -1,0 +1,43 @@
+Write SQL to solve the following problems:
+
+3.	List a share's name and its code.
+SELECT shrcode, shrfirm FROM SHARE_T;
+
+
+
+4.	List full details for all shares with a price less than one dollar.
+SELECT * FROM SHARE_T where shrprice<1;
+
+
+
+5.	List the name and price of all shares with a price of at least $10.
+SELECT * FROM SHARE_T where shrprice>10;
+
+
+6.	List the name, share price, share holding, and total value of shares held (this is number of shares times share price).
+
+
+
+
+7.	List the name of all shares with a yield exceeding 5 percent (yield is equal to the dividend divided by the price).
+
+
+
+
+8.	Report the total dividend payment of Patagonian Tea (the total dividend payment is the dividend times quantity).
+
+
+
+
+9.	Find all shares where the price is less than 20 times the dividend.
+
+
+
+
+10.	Find the share with the minimum yield.
+
+
+
+
+11.	Find the total value of all shares with a PE ratio >10.
+
