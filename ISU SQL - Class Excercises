@@ -19,7 +19,7 @@ SELECT shrcode, shrfirm, shrprice, shrqty, shrprice*shrqty as TOTAL_VALUE FROM S
 
 
 7.	List the name of all shares with a yield exceeding 5 percent (yield is equal to the dividend divided by the price).
-
+SELECT * FROM share_t WHERE (shrdiv/shrprice) > .05;
 
 
 
