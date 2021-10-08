@@ -29,11 +29,18 @@ Use || for one
 Use  > for many
 For example, there can be many purchases but one customer, but only one customer.
 
-
-
 ----------------
 CREATE DATABASE IF NOT EXISTS Sales;
 CREATE SCHEMA IF NOT EXISTS Sales;
 
+-------------------
+CREATE TABLE sales ( purchase_number INT NOT NULL PRIMARY KEY AUTO_INCREMENT, date_of_purchase DATE NOT NULL, customer_id INT, item_code VARCHAR(10) NOT NULL);
+SELECT * FROM sales.customer;    ===> database_object.sql_object 
 
+---------------------
+DEFAULT CONSTRAINT
+CREATE TABLE customers ( customer_id INT AUTO_INCREMENT, first_name VARCHAR(255), last_nane VARCHAR(255),
+email VARCHAR(255), num_complaints INT, PRIMARY KEY (customer_id);
 
+ALTER TABLE customers 
+CHANGE COLUMN num_complaints INT DETAULT 0;
