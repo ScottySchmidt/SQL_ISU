@@ -97,7 +97,9 @@ This time setting the “headquarters phone number” to be the unique key, and 
 After you execute the code properly, drop the “companies” table.
 
 SOLUTION:
-
+CREATE company TABLE (company_id VARCHAR(255), company_name VARCHAR(255), headquarters_phone_number VARCHAR(255) DEFAULT("X"),
+PRIMARY KEY (company_id), UNIQUE KEY (headquarters_phone_number);
+DROP TABLE companies;
 
 
 -----------------------------------------
