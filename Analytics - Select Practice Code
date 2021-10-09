@@ -56,29 +56,51 @@ Retrieve a list with data about all female employees who were hired in the year 
 Hint: If you solve the task correctly, SQL should return 7 rows.
 Extract a list with all employees’ salaries higher than $150,000 per annum.
 
-
+SELECT * FROM salaries WHERE gender = 'Female' AND year>2000
+SELECT employees FROM salaries WHERE salaries>150,000
 
 
 
 
 Obtain a list with all different “hire dates” from the “employees” table.
 Expand this list and click on “Limit to 1000 rows”. This way you will set the limit of output rows displayed back to the default of 1000.
-In the next lecture, we will show you how to manipulate the limit rows count. 
 
-
+SELECT DISTINCT hire_date FROM employees;
 
 
 How many annual contracts with a value higher than or equal to $100,000 have been registered in the salaries table?
 How many managers do we have in the “employees” database? Use the star symbol (*) in your code to solve this exercise.
 
-
+SELECT COUNT (contracts) FROM salaries WHERE salaries > 100000;
+SELECT COUNT 
 
 
 Select all data from the “employees” table, ordering it by “hire date” in descending order.'
-SELECT * FROM employees ORDER BY hire_date DESC
+SELECT * FROM employees ORDER BY hire_date DESC;
 
 
+-----------------------
+USING ALIAS (AS)
 
-This will be a slightly more sophisticated task.
 Write a query that obtains two columns. The first column must contain annual salaries higher than 80,000 dollars. 
 The second column, renamed to “emps_with_same_salary”, must show the number of employees contracted to that salary. Lastly, sort the output by the first column.
+
+SELECT salary, COUNT (emp_no) AS emps_with_same_salary GROUP BY salary ORDER BY salary;
+
+-----------------------
+
+Select the names of all departments whose department number value is not null.
+SELECT dept_name FROM dept_no WHERE dept_no IS NOT NULL;
+
+-----------------
+HAVING EXERCISE:
+
+Select all employees whose average salary is higher than $120,000 per annum.
+SELECT *, AVG(salary) FROM salaries WHERE salary>120000 GROUP BY emp_no ORDER BY emp_no;
+
+---------------------
+WHERE VS HAVING:
+
+Select the employee numbers of all individuals who have signed more than 1 contract after the 1st of January 2000
+SELECT COUNT (emp_no) WHERE contract>1 AND from_date > '2000-01-01' ORDER BY emp_no;
+
