@@ -98,13 +98,16 @@ After you execute the code properly, drop the “companies” table.
 
 SOLUTION:
 CREATE company TABLE (company_id VARCHAR(255), company_name VARCHAR(255), headquarters_phone_number VARCHAR(255) DEFAULT("X"),
-PRIMARY KEY (company_id), UNIQUE KEY (headquarters_phone_number);
+PRIMARY KEY (company_id), 
+UNIQUE KEY (headquarters_phone_number);
 DROP TABLE companies;
 
 
 -----------------------------------------
 Using ALTER TABLE, first add the NULL constraint to the headquarters_phone_number field in the “companies” table, and then drop that same constraint.
 
+SOLUTION: ALTER TABLE companies 
+MODIFIY headquarters_phone_number INT  null;
 
-SOLUTION:
+
 
