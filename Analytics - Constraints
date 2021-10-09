@@ -101,4 +101,8 @@ SOLUTION:
 
 
 -----------------------------------------
+Using ALTER TABLE, first add the NULL constraint to the headquarters_phone_number field in the “companies” table, and then drop that same constraint.
+
+
+SOLUTION:
 
