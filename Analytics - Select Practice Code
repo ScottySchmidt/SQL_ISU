@@ -102,5 +102,10 @@ SELECT *, AVG(salary) FROM salaries WHERE salary>120000 GROUP BY emp_no ORDER BY
 WHERE VS HAVING:
 
 Select the employee numbers of all individuals who have signed more than 1 contract after the 1st of January 2000
-SELECT COUNT (emp_no) WHERE contract>1 AND from_date > '2000-01-01' ORDER BY emp_no;
+SELECT emp_no FROM dept_emp WHERE from_date > '2000-01-01' HAVING COUNT(from_date)>1 ORDER BY emp_no;
 
+-------------------
+LIMIT
+
+Select the first 100 rows from the ‘dept_emp’ table. 
+SELECT * FROM dept_temp LIMIT 100;
