@@ -41,7 +41,22 @@ SOLUTION:
 SELECT AVG(salary) FROM employees WHERE date > '01-01-1997'
 
 ----------
+Another example of using COALESCE() - exercise 1
 
+Select the department number and name from the ‘departments_dup’ table and add a third column where you name the department number (‘dept_no’) as ‘dept_info’. 
+If ‘dept_no’ does not have a value, use ‘dept_name’.
+
+SOLUTION:
+SELECT dept_no, dept_name, COALESCE(dept_no, dept_name) FROM departments_dup;
+
+-------------
+Another example of using COALESCE() - exercise 2
+
+Modify the code obtained from the previous exercise in the following way. 
+Apply the IFNULL() function to the values from the first and second column, so that ‘N/A’ is displayed whenever a department number has no value,
+and ‘Department name not provided’ is shown if there is no value for ‘dept_name’.
+
+SOLUTION:
 
 
 
