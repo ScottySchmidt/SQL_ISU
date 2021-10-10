@@ -1,0 +1,47 @@
+COUNT() Exercise:
+
+How many departments are there in the “employees” database? 
+Use the ‘dept_emp’ table to answer the question.
+
+SOLUTION:
+SELECT COUNT(DISTINCT depart_no) FROM dept_emp;
+
+-----------
+SUM() Exercise:
+
+What is the total amount of money spent on salaries for all contracts starting after the 1st of January 1997?
+
+SOLUTION:
+SELECT SUM(salary) FROM salaries WHERE date>'01-01-1997';
+
+
+-----------
+MIN AND MAX Exercise:
+1. Which is the lowest employee number in the database?
+2. Which is the highest employee number in the database?
+
+SOLUTION:
+SELECT MIN(emp_no) FROM employees;
+SELECT MAX(emp_no) FROM employees;
+
+-----------
+AVG() - exercise:
+
+What is the average annual salary paid to employees who started after the 1st of January 1997?
+
+SOLUTION:
+SELECT AVG(salary) FROM employees WHERE date > '01-01-1997';
+
+------------
+ROUND() - exercise:
+
+Round the average amount of money spent on salaries for all contracts that started after the 1st of January 1997 to a precision of cents.
+
+SOLUTION:
+SELECT AVG(salary) FROM employees WHERE date > '01-01-1997'
+
+----------
+
+
+
+
