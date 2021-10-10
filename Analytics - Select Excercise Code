@@ -36,6 +36,12 @@ SELECT * FROM employees WHERE first_name="Jack";
 SELECT * FROM employees WHERE first_name NOT IN (Jack);
 
 
+-------------------
+Using HAVING is used when using the COUNT function.
+Using HAVING is used on aggregate functions. 
+HAVING is used with GROUP BY and aggregrate functions.
+Generally, use WHERE clause.
+
 Select all the information from the “salaries” table regarding contracts from 66,000 to 70,000 dollars per year.
 Retrieve a list with all individuals whose employee number is not between ‘10004’ and ‘10012’.
 Select the names of all departments with numbers between ‘d003’ and ‘d006’
