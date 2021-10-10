@@ -47,7 +47,7 @@ SELECT * FROM salaries HAVING employee_number NOT BETWEEN 10004 and 10012.
 
 
 Select the names of all departments whose department number value is not null.
-SELECT * FROM departments WHERE number is NOT NUL
+SELECT * FROM departments WHERE number is NOT NULL
 
 
 
@@ -68,15 +68,21 @@ Expand this list and click on “Limit to 1000 rows”. This way you will set th
 SELECT DISTINCT hire_date FROM employees;
 
 
+------------------
+AGGERATE FUNCTIONS EXERCISE:
+
 How many annual contracts with a value higher than or equal to $100,000 have been registered in the salaries table?
 How many managers do we have in the “employees” database? Use the star symbol (*) in your code to solve this exercise.
 
-SELECT COUNT (contracts) FROM salaries WHERE salaries > 100000;
-SELECT COUNT 
+SELECT COUNT (*) FROM salaries WHERE salary > 100000;
+SELECT COUNT(*) FROM dept_manager;
 
 
+-----------------
 Select all data from the “employees” table, ordering it by “hire date” in descending order.'
 SELECT * FROM employees ORDER BY hire_date DESC;
+
+
 
 
 -----------------------
