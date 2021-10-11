@@ -49,3 +49,10 @@ CHANGE COLUMN num_complaints INT DETAULT 0;
 DROP looses EVERYTHING.
 Truncate removes all records but keeps table structure.
 DELETE removes records row by row. 
+
+-------------------
+SELECT 
+    dept_no
+    IFNULL(dept_name, "Department name noto provided")
+FROM departments_dup;
+-------------------
