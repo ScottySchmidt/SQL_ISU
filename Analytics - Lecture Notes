@@ -44,3 +44,8 @@ email VARCHAR(255), num_complaints INT, PRIMARY KEY (customer_id);
 
 ALTER TABLE customers 
 CHANGE COLUMN num_complaints INT DETAULT 0;
+
+--------------------
+DROP looses EVERYTHING.
+Truncate removes all records but keeps table structure.
+DELETE removes records row by row. 
