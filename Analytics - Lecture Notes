@@ -55,4 +55,10 @@ SELECT
     dept_no
     IFNULL(dept_name, "Department name noto provided")
 FROM departments_dup;
+
+IFNULL can only hold two paramters.
+That is when COALESCE is needed.
+
+Summary: IFNULL() and COALESCE() do not make any changes to the data set. 
+They merely created an output where certain data values appear in place of NULL values.
 -------------------
