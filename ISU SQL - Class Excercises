@@ -31,17 +31,23 @@ WHERE shrfirm = 'Patagonian Tea';
 
 
 9.	Find all shares where the price is less than 20 times the dividend.
-
+SELECT shrfirm
+FROM share_t
+WHERE shrprice< shrdiv*20; 
 
 
 
 
 10.	Find the share with the minimum yield.
-
+SELECT share 
+FROM share_t 
 
 
 
 11.	Find the total value of all shares with a PE ratio >10.
+SELECT sum(price*qty)
+FROM t_share
+WHERE PE > 10;
 
 
 
@@ -58,7 +64,9 @@ WHERE shrfirm = 'Patagonian Tea';
 
 
 14.	Find the yield of all firms except Bolivian Tea and Canadian Sugar.
-
+SELECT sum(yield) 
+FROM t_share
+WHERE name NOT "Bolivian Tea" AND "Canadian Sugar";
 
 
 
