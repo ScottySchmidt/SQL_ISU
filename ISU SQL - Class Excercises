@@ -101,5 +101,5 @@ WHERE name LIKE '%Gold%';
 18.	Find shares with a code starting with 'B.'
 SELECT share
 FROM t_share
-WHERE name LIKE ''%Gold';
+WHERE name LIKE '%Gold';
 
