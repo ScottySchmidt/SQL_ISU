@@ -76,7 +76,7 @@ WHERE shrfirm <> "Bolivian Tea" AND <> "Canadian Sugar";
 
 
 15.	Find the total value of the portfolio.
-SELECT SUM(price*qty)
+SELECT SUM(sqrprice*sqrqty) as total_value
 FROM t_share;
 
 
