@@ -39,8 +39,10 @@ WHERE shrprice< shrdiv*20;
 
 
 10.	Find the share with the minimum yield.
-SELECT share 
-FROM share_t; 
+SELECT shrfirm
+FROM share_t
+WHERE shrdiv/shrprice = (SELECT shrdiv/shrprice)
+FROM share_t
 
 
 
@@ -52,8 +54,10 @@ WHERE shrpe > 10;
 
 
 12.	Find the share with the maximum total dividend payment.
-SELECT name, MAX(dividend) 
-FROM t_share;
+SELECT shrfirm
+FROM share_t
+WHERE shrdiv*shrqty = (SELECT max(shrdiv*shrqty)
+FROM share_t);
 
 
 
