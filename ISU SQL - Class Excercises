@@ -91,15 +91,14 @@ ORDER BY shrprice DESC:
 
 
 17.	List shares with a firm name containing 'Gold.'
-SELECT shares 
+SELECT shrcode, shrpice, shrfirm 
 FROM t_share
-WHERE name LIKE '%Gold%';
-
+WHERE e LIKE '%Gold%';
 
 
 
 18.	Find shares with a code starting with 'B.'
-SELECT share
+SELECT shrcode, shrpice, shrfirm
 FROM t_share
-WHERE name LIKE '%Gold';
+WHERE shrcode LIKE 'B%';
 
