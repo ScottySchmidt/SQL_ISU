@@ -24,11 +24,14 @@ SELECT * FROM share_t WHERE (shrdiv/shrprice) > .05;
 
 
 8.	Report the total dividend payment of Patagonian Tea (the total dividend payment is the dividend times quantity).
-
+SELECT shrfirm, shrdiv*shrqty as TOTAL_DIVIDEND 
+FROM share_t
+WHERE shrfirm = 'Patagonian Tea';
 
 
 
 9.	Find all shares where the price is less than 20 times the dividend.
+
 
 
 
