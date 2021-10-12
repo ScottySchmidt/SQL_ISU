@@ -52,7 +52,7 @@ WHERE PE > 10;
 
 
 12.	Find the share with the maximum total dividend payment.
-
+SELECT share, 
 
 
 
@@ -74,7 +74,8 @@ WHERE name NOT "Bolivian Tea" AND "Canadian Sugar";
 
 
 15.	Find the total value of the portfolio.
-
+SELECT SUM(price*qty)
+FROM t_share;
 
 
 
