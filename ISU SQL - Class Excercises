@@ -52,13 +52,13 @@ WHERE PE > 10;
 
 
 12.	Find the share with the maximum total dividend payment.
-SELECT share, 
-
+SELECT name, MAX(dividend) 
+FROM t_share;
 
 
 
 13.	Find the value of the holdings in Abyssinian Ruby and Sri Lankan Gold.
-
+SELECT 
 
 
 
@@ -87,10 +87,15 @@ FROM t_share;
 
 
 17.	List shares with a firm name containing 'Gold.'
-
+SELECT shares 
+FROM t_share
+WHERE name LIKE '%Gold%';
 
 
 
 
 18.	Find shares with a code starting with 'B.'
+SELECT share
+FROM t_share
+WHERE name LIKE ''%Gold';
 
