@@ -83,9 +83,9 @@ FROM t_share;
 
 
 16.	List firm name and value in descending order of value.
-SELECT name, value
+SELECT shrfirm, shrprice 
 FROM t_share
-ORDER BY value DESC:
+ORDER BY shrprice DESC:
 
 
 
