@@ -40,14 +40,14 @@ WHERE shrprice< shrdiv*20;
 
 10.	Find the share with the minimum yield.
 SELECT share 
-FROM share_t 
+FROM share_t; 
 
 
 
 11.	Find the total value of all shares with a PE ratio >10.
-SELECT sum(price*qty)
+SELECT SUM(shrprice*shrqty) as holding_value
 FROM t_share
-WHERE PE > 10;
+WHERE shrpe > 10;
 
 
 
@@ -58,7 +58,7 @@ FROM t_share;
 
 
 13.	Find the value of the holdings in Abyssinian Ruby and Sri Lankan Gold.
-SELECT sum(value)
+SELECT shrfirm, shrqty*shrprice
 FROM t_share
 WHERE name='Abyssinian Ruby' AND 'Sri Lankan Gold';
 
@@ -66,9 +66,9 @@ WHERE name='Abyssinian Ruby' AND 'Sri Lankan Gold';
 
 
 14.	Find the yield of all firms except Bolivian Tea and Canadian Sugar.
-SELECT sum(yield) 
+SELECT shrfirm, shrdiv/shrpice as yield
 FROM t_share
-WHERE name NOT "Bolivian Tea" AND "Canadian Sugar";
+WHERE shrfirm <> "Bolivian Tea" AND <> "Canadian Sugar";
 
 
 
