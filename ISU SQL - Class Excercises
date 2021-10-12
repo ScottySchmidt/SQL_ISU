@@ -58,7 +58,9 @@ FROM t_share;
 
 
 13.	Find the value of the holdings in Abyssinian Ruby and Sri Lankan Gold.
-SELECT 
+SELECT sum(value)
+FROM t_share
+WHERE name='Abyssinian Ruby' AND 'Sri Lankan Gold';
 
 
 
@@ -81,7 +83,9 @@ FROM t_share;
 
 
 16.	List firm name and value in descending order of value.
-
+SELECT name, value
+FROM t_share
+ORDER BY value DESC:
 
 
 
