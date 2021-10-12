@@ -40,3 +40,45 @@ SELECT * FROM share_t WHERE (shrdiv/shrprice) > .05;
 
 11.	Find the total value of all shares with a PE ratio >10.
 
+
+
+12.	Find the share with the maximum total dividend payment.
+
+
+
+
+
+13.	Find the value of the holdings in Abyssinian Ruby and Sri Lankan Gold.
+
+
+
+
+
+14.	Find the yield of all firms except Bolivian Tea and Canadian Sugar.
+
+
+
+
+
+
+
+15.	Find the total value of the portfolio.
+
+
+
+
+
+16.	List firm name and value in descending order of value.
+
+
+
+
+
+17.	List shares with a firm name containing 'Gold.'
+
+
+
+
+
+18.	Find shares with a code starting with 'B.'
+
