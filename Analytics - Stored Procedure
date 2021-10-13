@@ -1,0 +1,32 @@
+Stored Procedure is the same thing as a function.
+
+DELIMETER$$
+CREATE PROCEDURE select_employees()
+BEGIN
+    SELECT * FROM employees LIMIT 1000;
+END$$
+DELIMETER;
+
+call employees.select_employees();
+call select_employees();
+
+CREATE DEFUBER='root' @locathost PROCEDURE 'select_employees'()
+BEGIN 
+    SELECT * FROM employees LIMIT 100;
+END
+-------------------
+Stored procedures - Example - Part II - exercise
+Create a procedure that will provide the average salary of all employees.
+Then, call the procedure.
+
+DELIMTER$$
+CREATE PROCEDURE avg_salary()
+BEGIN
+    SELECT AVG(salary) FROM employees;
+END$$
+DELIMETER;
+
+CALL avg_salary();
+CALL avg_salary;
+call employees.avg_salary;
+
