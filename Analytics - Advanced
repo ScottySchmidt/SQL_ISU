@@ -1,0 +1,21 @@
+#NOTES:
+System functions = built-in functions 
+*provide data about the moment of the execution of a certain query.
+Example: SELECT DATE_FORMAT(SYSDATE(), '%y-%m-%d') as today;
+
+#MySQL Triggers:
+CREATE TRIGGER before_salaries_insert
+BEFORE INSERT on salaries
+FOR EACH ROW
+BEGIN
+  IF NEW.salary < 0 THEN
+      SET NEW.salary=0;
+  END IF;
+END $$
+
+BEGIN
+  IF NEW.salary < 0 THEN
+    SET NEW..salary=OLD.salary;
+    
+
+   
