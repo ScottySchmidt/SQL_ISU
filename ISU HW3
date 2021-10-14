@@ -4,10 +4,10 @@ This database will be made available to you. Print and turn in a hard copy of th
 Note: there will be a point deduction for output that includes duplicate lines.
  
 1.	List all the order line information for order number 12498.
-SELECT orderLine FROM customers WHERE orderNumber='12498';
+SELECT orderLine FROM customer_table WHERE orderNumber='12498';
 
 2.	List all details about parts. The output should be sorted by part number within warehouse number.
-SELECT details FROM parts ORDER BY partNumber;
+SELECT details FROM customer_table ORDER BY partNumber;
 
 3.	Find out how many customers have a balance that exceeds their credit limit.
 
