@@ -32,3 +32,142 @@ SELECT details FROM customer_table ORDER BY partNumber;
 
 10.	List the number and description of all parts that are currently on order by any customer who is represented by the sales rep whose name is "Mary Jones".
 
+
+SQL CODE (below):
+create table sales_rep
+(salesrep_numb varchar2(3) not null,
+sr_last varchar2(20) NOT NULL,
+sr_first varchar2(20) NOT NULL,
+sr_street varchar2(25) not null,
+sr_city varchar2(20) not null,
+sr_state char(2) not null,
+sr_zip_code varchar2(9) not null,
+total_commission number(10,2) not null,
+commission_rate number(10,2) not null,
+	CONSTRAINT salesrep_pk PRIMARY KEY(salesrep_numb));
+
+INSERT INTO sales_rep
+VALUES ('03','Jones','Mary','123 Main','Grant','MI','49219',2150.00,.05);
+INSERT INTO sales_rep
+VALUES ('06','Smith','William','102 Raymond','ADA','MI','49441',4912.50,.07);
+INSERT INTO sales_rep
+VALUES ('12','Diaz','Miguel','419 Harper','Lansing','MI','49224',2150.00,.05);
+
+create table Customer
+(customer_number number(4) not null,
+c_last varchar2(20) NOT NULL,
+c_first varchar2(20) NOT NULL,
+c_street varchar2(25) not null,
+c_city varchar2(20) not null,
+c_state char(2) not null,
+c_zip_code varchar2(9) not null,
+balance number(10,2) not null,
+credit_limit number(10,2) not null,
+salesrep_numb varchar2(3) not null,
+	CONSTRAINT customer_pk PRIMARY KEY(customer_number),
+	constraint customer_fk foreign key (salesrep_numb) references sales_rep(salesrep_numb));
+  
+INSERT INTO customer
+VALUES (124,'Adams','Sally','481 Oak','Lansing','MI',49224,818.75,1000.00,'03');
+INSERT INTO customer
+VALUES (256,'Samuels','Ann','215 Pete','Grant','MI',49219,21.50,1500.00,'06');
+INSERT INTO customer
+VALUES (311,'Charles','Don','48 College','Ira','MI',49034,825.75,1000.00,'12');
+INSERT INTO customer
+VALUES (315,'Daniels','Tom','914 Cherry','Kent','MI',48391,770.75,750.00,'06');
+INSERT INTO customer
+VALUES (405,'Williams','Al','519 Watson','Grant','MI',49219,402.75,1500.00,'12');
+INSERT INTO customer
+VALUES (412,'Adams','Sally','16 Elm','Lansing','MI',49224,1817.50,2000.00,'03');
+INSERT INTO customer
+VALUES (522,'Nelson','Mary','108 Pine','Ada','MI',49441,98.75,1500.00,'12');
+INSERT INTO customer
+VALUES (567,'Dinh','Tran','808 Ridge','Harper','MI',48421,402.40,750.00,'06');
+INSERT INTO customer
+VALUES (587,'Galvez','Mara','512 Pine','Ada','MI',49441,114.60,1000.00,'06');
+INSERT INTO customer
+VALUES (622,'Martin','Dan','419 Chip','Grant','MI',49219,1045.75,1000.00,'03');
+
+create table orders
+(order_number number(5) not null,
+orderdate date NOT NULL,
+customer_number number(4) NOT NULL,
+
+	CONSTRAINT orders_pk PRIMARY KEY(order_number),
+	constraint orders_fk foreign key (customer_number) references customer(customer_number));
+
+INSERT INTO orders
+VALUES (12489,'02-SEP-00',124);
+INSERT INTO orders
+VALUES (12491,'02-SEP-00',311);
+INSERT INTO orders
+VALUES (12494,'02-SEP-00',315);
+INSERT INTO orders
+VALUES (12495,'04-SEP-00',256);
+INSERT INTO orders
+VALUES (12498,'05-SEP-00',522);
+INSERT INTO orders
+VALUES (12500,'05-SEP-00',124);
+INSERT INTO orders
+VALUES (12504,'05-SEP-00',522);
+
+create table part
+(part_number varchar2(5) not null,
+part_description varchar2(20) not null,
+units_on_hand number(5) not null,
+item_class varchar2(4) not null,
+warehouse_number varchar2(3) not null,
+unit_price number(6,2) not null,
+
+	constraint part_pk primary key (part_number));
+
+insert into part
+values ('AX12','Iron',104,'HW','3',24.95);
+insert into part
+values ('AZ52','Dartboard',20,'SG','2',12.95);
+insert into part
+values ('BA74','Basketball',40,'SG','1',29.95);
+insert into part
+values ('BH22','Cornpopper',95,'HW','3',24.95);
+insert into part
+values ('BT04','Gas Grill',11,'AP','2',149.99);
+insert into part
+values ('BZ66','Washer',52,'AP','3',399.99);
+insert into part
+values ('CA14','Griddle',78,'HW','3',39.99);
+insert into part
+values ('CB03','Bike',44,'SG','1',299.99);
+insert into part
+values ('CX11','Blender',112,'HW','3',22.95);
+insert into part
+values ('CZ81','Treadmill',68,'SG','2',349.95);
+
+create table Order_line
+(order_number number(5) not null,
+part_number varchar2(5) not null,
+number_ordered number (5) not null,
+quotedprice number (6,2) not null,
+
+constraint orderLine_pk primary key (order_number, part_number),
+constraint OL_FK1 foreign key (order_number) references orders(order_number),
+constraint OL_FK2 foreign key (part_number) references part(part_number));
+
+insert into order_line
+values (12489,'AX12',11,21.95);
+insert into order_line
+values (12491,'BT04',1,149.99);
+insert into order_line
+values (12491,'BZ66',1,399.99);
+insert into order_line
+values (12494,'CB03',4,279.99);
+insert into order_line
+values (12495,'CX11',2,22.95);
+insert into order_line
+values (12498,'AZ52',2,12.95);
+insert into order_line
+values (12498,'BA74',4,24.95);
+insert into order_line
+values (12500,'BT04',1,149.99);
+insert into order_line
+values (12504,'CZ81',2,325.99);
+
