@@ -2,49 +2,49 @@ Execute the following queries on the Premiere Products database.
 This database will be made available to you. Print and turn in a hard copy of the queries and results.
 Note: there will be a point deduction for output that includes duplicate lines.
  
-1.	List all the order line information for order number 12498.
+1. List all the order line information for order number 12498:
 SELECT * FROM Order_Line WHERE orderNumber='12498';
 
-2.	List all details about parts. The output should be sorted by part number within warehouse number.
+2. List all details about parts. The output should be sorted by part number within warehouse number:
 SELECT details FROM customer_table ORDER BY partNumber;
 
-3.	Find out how many customers have a balance that exceeds their credit limit.
+3. Find out how many customers have a balance that exceeds their credit limit:
 SELECT COUNT(customer_number ) 
 FROM Customer
 WHERE balance > credit_limit;
 
-4.	Find the total of the balances for all the customers for each sales rep.
+4. Find the total of the balances for all the customers for each sales rep:
 SELECT SUM(balance) FROM Customer
 GROUP BY sales_rep
 ORDER BY sales_rep;
 
 
-5.	List only the totals of the balances for sales reps with more than three customers.
+5. List only the totals of the balances for sales reps with more than three customers:
 SELECT SUM(balances) FROM ORDER
 GROUP BY sales_rep
 HAVING > 3 customers;
 
 
-6.	List the total of all orders placed on 04-Sep-00.
+6. List the total of all orders placed on 04-Sep-00:
 SELECT SUM(price) FROM orders 
 WHERE date='04-Sept-00';
 
 
-7.	List the number and name of all sales reps who represent at least one customer who lives on Pine Street. 
+7. List the number and name of all sales reps who represent at least one customer who lives on Pine Street:
 SELECT number, name FROM sales_rep
 HAVING customer
 
 
-8.	How about the number and name of all sales reps who do not represent any customers who live on Pine Street.
+8. How about the number and name of all sales reps who do not represent any customers who live on Pine Street:
 SELECT number, name FROM sale_reps 
 WHERE customer address NOT 'Pine Street'; 
 
-9.	Find the customer number and name of those customers who currently have an order on file for a "Basketball".
+9. Find the customer number and name of those customers who currently have an order on file for a "Basketball":
 SELECT customer_number, name FROM customers
 HAVING order ='Basketball';
 
 
-10.	List the number and description of all parts that are currently on order by any customer who is represented by the sales rep whose name is "Mary Jones".
+10. List the number and description of all parts that are currently on order by any customer who is represented by the sales rep whose name is "Mary Jones":
 SELECT number, description FROM parts
 HAVING sales_rep='Mary Jones';
 
