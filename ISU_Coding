@@ -48,7 +48,7 @@ HAVING order ='Basketball';
 
 10. List the number and description of all parts that are currently on order by any customer who is represented by the sales rep whose name is "Mary Jones":
 SELECT number, description FROM parts
-HAVING sales_rep.sr_first='Mary' AND sr_last='Jones';
+HAVING sales_rep.sr_first='Mary' AND sales_rep.sr_last='Jones';
 
 
 
