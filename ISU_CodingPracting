@@ -106,3 +106,48 @@ SELECT shrcode, shrpice, shrfirm
 FROM t_share
 WHERE shrcode LIKE 'B%';
 
+
+
+
+Write SQL to solve the following problems p.29:
+1.	List the phone number of donor 112.
+SELECT dPhone 
+FROM donor
+WHERE donorno='112';
+
+
+2.	How many donors are there in the donor table?
+
+
+
+3.	How many people made donations in 1992?
+
+
+
+4.	What is the name of the person who made the largest donation in 1992?
+
+
+5.	What was the total amount donated in 1993?
+
+
+6.	List the donors who have made donations in every year.
+
+
+
+7.	List the donors who give twice the average.
+
+
+
+8.	List the total amount given by each person across all years, sort by donor name.
+
+
+
+9.	Report the total donations in 1994 by state.
+
+
+10.	In which years did the total donated exceed the goal for the year?
+
+ 
+
+
+
