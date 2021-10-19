@@ -117,17 +117,27 @@ WHERE donorno='112';
 
 
 2.	How many donors are there in the donor table?
-
+SELECT COUNT(*) 
+FROM donor;
 
 
 3.	How many people made donations in 1992?
-
+SELECT COUNT(*) 
+FROM gift
+WHERE year='1992';
 
 
 4.	What is the name of the person who made the largest donation in 1992?
+SELECT name, amount
+FROM person 
+WHERE year='1992'
+GROUP BY name LIMIT 1;
 
 
 5.	What was the total amount donated in 1993?
+SELECT SUM(amount)
+FROM gift
+WHERE year='1993';
 
 
 6.	List the donors who have made donations in every year.
