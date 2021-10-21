@@ -39,8 +39,19 @@ WHERE dm.last_name='Markovitch'
 ORDER BY dept_no DESC;
 
 ------------------------------------------
+The new and the old join syntax - solution
 
- 
+Using "WHERE" can be seen as old school and slower in comparision to join:
+
+SELECT  e.emp_no,  e.first_name, e.last_name, dm.dept_no, e.hire_date
+FROM  employees e, dept_manager dm
+WHERE  e.emp_no = dm.emp_no;
+
+New method using join:
+SELECT  e.emp_no,  e.first_name, e.last_name, dm.dept_no, e.hire_date
+FROM  employees e
+JOIN department_manager dm 
+ON e.emp_no = dm.dept_no;
  
  
  
