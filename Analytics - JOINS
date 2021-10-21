@@ -67,7 +67,7 @@ ON e.emp_no = dm.dept_no;
  Select the first and last name, the hire date,
  and the job title of all employees whose first name is “Margareta” and have the last name “Markovitch”.
  
- SELECT e.first_name, e.last_name, e.hire_date, e.job_title
+ SELECT e.first_name, e.last_name, e.hire_date, t.job_title
  FROM employees e
  INNER JOIN
  titles
