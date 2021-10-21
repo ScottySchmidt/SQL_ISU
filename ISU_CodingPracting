@@ -128,7 +128,6 @@ WHERE year='1992';
 
 
 4.	What is the name of the person who made the largest donation in 1992?
-
 SELECT fname, lname
 FROM donor, gift
 WHERE donor.donorno=gift.donorno
@@ -157,12 +156,23 @@ HAVING yeargoal <sum(amount);
 
 
 
+
 8.	List the total amount given by each person across all years, sort by donor name.
+SELECT dstate, sum(amount)
+FROM donor, gift
+WHERE donor.donorno=gift.donorno
+AND year=1994
+GROUP BY dstate,
+ORDER BY dstate;
 
 
 
 
 9.	Report the total donations in 1994 by state.
+SELECT sum(amount)
+FROM donor, gift
+WHERE year=1994
+GROUP BY dstate;
 
 
 
