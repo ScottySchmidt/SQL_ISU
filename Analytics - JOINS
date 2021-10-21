@@ -10,5 +10,42 @@ Insert two new records in the “departments_dup” table. Let their values in t
 SOLUTION:
 
 --------------------------
+LEFT JOIN part2 notes:
+
+SELECT 
+  d.dept_no, m.emp_no, d.dept_name
+FROM 
+  departments_dub d
+    LEFT JOIN
+   dept_manager_dup m ON m.dept_no = d.dept_no
+ ORDER BY d.dept_no;
+ 
+ --------------------------------
+ 
+ LEFT JOIN - Part II - exercise
+Join the 'employees' and the 'dept_manager' tables to return a subset of all the employees whose last name is Markovitch.
+See if the output contains a manager with that name.  
+Hint: Create an output containing information corresponding to the following fields: 
+‘emp_no’, ‘first_name’, ‘last_name’, ‘dept_no’, ‘from_date’. Order by 'dept_no' descending, and then by 'emp_no'.
+
+This is similiar to the above lecture. And it similiar to LeetCode SQL problem 170s:
+
+SOLUTION:
+SELECT emp_no, dm.first_name, dm.last_name, dept_no, e.from_date
+FROM employees e
+LEFT JOIN
+dept_manager dm ON emp_no=dm_id
+WHERE dm.last_name='Markovitch'
+ORDER BY dept_no DESC;
+
+------------------------------------------
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 
 
