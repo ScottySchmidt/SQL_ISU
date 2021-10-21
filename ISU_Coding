@@ -36,7 +36,7 @@ WHERE date='04-Sept-00';
 7. List the number and name of all sales reps who represent at least one customer who lives on Pine Street:
 SELECT number, name FROM sales_rep
 HAVING customer
-ADDRSES = 'Pine Street';
+ADDRESS = 'Pine Street';
 
 8. How about the number and name of all sales reps who do not represent any customers who live on Pine Street:
 SELECT number, name FROM sale_reps 
