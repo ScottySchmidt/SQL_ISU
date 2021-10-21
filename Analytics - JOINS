@@ -77,7 +77,16 @@ ON e.emp_no = dm.dept_no;
  ------------------------------------------
  CROSS JOIN:
  
+ A CROSS JOIN will take the values from a certain table and connect them with all the values 
+ from the tables we want to join it with.
  
+ An INNER JOIN typically connects only the matching values.
+ A CROSS JOIN connnects all the values, not just those that match.
+ The Cartesian product of the values or two or more sets.
+ Particularly useful when the tables in a database are not well connected.
  
+  ------------------------------------------
+  
+  
 
 
