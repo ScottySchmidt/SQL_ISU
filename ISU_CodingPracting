@@ -144,6 +144,11 @@ WHERE year='1993';
 
 
 6.	List the donors who have made donations in every year.
+SELECT year.year
+FROM year, gift
+WHERE year.year=gift.year
+GROUP BY year.year, yeargoal
+HAVING yeargoal <sum(amount);
 
 
 
@@ -151,11 +156,15 @@ WHERE year='1993';
 
 
 
+
 8.	List the total amount given by each person across all years, sort by donor name.
 
 
 
+
 9.	Report the total donations in 1994 by state.
+
+
 
 
 10.	In which years did the total donated exceed the goal for the year?
