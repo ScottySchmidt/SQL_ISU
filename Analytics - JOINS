@@ -53,8 +53,23 @@ FROM  employees e
 JOIN department_manager dm 
 ON e.emp_no = dm.dept_no;
  
+ ----------------------------------------
+ Using JOIN and WHERE together:
+ SELECT e.emp_no, e.first_name, e.last_name, s.salary
+ FROM 
+ employees E
+ JOIN 
+ salaries s ON e.emp_no = s.emp_no
+ WHERE
+ s.salary > 145000;
  
  
+ Select the first and last name, the hire date,
+ and the job title of all employees whose first name is “Margareta” and have the last name “Markovitch”.
+ 
+ 
+ ------------------------------------------
+ CROSS JOIN:
  
  
  
