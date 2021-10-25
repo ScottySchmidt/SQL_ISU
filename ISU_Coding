@@ -2,19 +2,23 @@ Execute the following queries on the Premiere Products database.
 This database will be made available to you. Print and turn in a hard copy of the queries and results.
 Note: there will be a point deduction for output that includes duplicate lines.
  
+ 
 1. List all the order line information for order number 12498:
 SELECT order_number, part_number, number_ordered, quotedprice FROM order_line
 WHERE order_number='12498';
+
 
 2. List all details about parts. The output should be sorted by part number within warehouse number:
 SELECT part_number, part_description, units_on_hand, item_class, warehouse_number, unit_price
 FROM part
 ORDER BY warehouse_number;
 
+
 3. Find out how many customers have a balance that exceeds their credit limit:
 SELECT COUNT(customer_number ) 
 FROM Customer
 WHERE balance > credit_limit;
+
 
 4. Find the total of the balances for all the customers for each sales rep:
 SELECT SUM(quotedprice*number_ordered) FROM customer
@@ -23,6 +27,8 @@ ORDER BY sales_rep;
 
 
 5. List only the totals of the balances for sales reps with more than three customers:
+
+#WRONG?
 SELECT SUM(balance) 
 FROM customer
 GROUP BY salesrep_numb;
@@ -38,9 +44,11 @@ SELECT number, name FROM sales_rep
 HAVING customer
 ADDRESS = 'Pine Street';
 
+
 8. How about the number and name of all sales reps who do not represent any customers who live on Pine Street:
 SELECT number, name FROM sale_reps 
 WHERE customer address NOT 'Pine Street'; 
+
 
 9. Find the customer number and name of those customers who currently have an order on file for a "Basketball":
 SELECT customer_number, name FROM customers
@@ -53,6 +61,7 @@ HAVING sales_rep.sr_first='Mary' AND sales_rep.sr_last='Jones';
 
 
 
+-----------------------------------------------------
 SQL CODE (below):
 create table sales_rep
 (salesrep_numb varchar2(3) not null,
