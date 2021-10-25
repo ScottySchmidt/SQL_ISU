@@ -11,7 +11,7 @@ WHERE order_number='12498';
 2. List all details about parts. The output should be sorted by part number within warehouse number:
 SELECT part_number, part_description, units_on_hand, item_class, warehouse_number, unit_price
 FROM part
-ORDER BY warehouse_number;
+GROUP BY warehouse_number;
 
 
 3. Find out how many customers have a balance that exceeds their credit limit:
@@ -28,7 +28,6 @@ ORDER BY sales_rep;
 
 5. List only the totals of the balances for sales reps with more than three customers:
 
-#WRONG?
 SELECT SUM(balance) 
 FROM customer
 GROUP BY salesrep_numb;
@@ -56,10 +55,9 @@ HAVING order ='Basketball';
 
 
 10. List the number and description of all parts that are currently on order by any customer who is represented by the sales rep whose name is "Mary Jones":
-SELECT number, description FROM parts
-HAVING sales_rep.sr_first='Mary' AND sales_rep.sr_last='Jones';
-
-
+SELECT part_number, part_description 
+FROM part, customer
+WHERE customer.salesrep_numb='02';
 
 -----------------------------------------------------
 SQL CODE (below):
