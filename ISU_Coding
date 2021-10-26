@@ -11,8 +11,7 @@ WHERE order_number='12498';
 2. List all details about parts. The output should be sorted by part number within warehouse number:
 SELECT part_number, part_description, units_on_hand, item_class, warehouse_number, unit_price
 FROM part
-ORDER BY part_number;
-GROUP BY warehouse_number
+GROUP BY warehouse_number;
 
 
 3. Find out how many customers have a balance that exceeds their credit limit:
