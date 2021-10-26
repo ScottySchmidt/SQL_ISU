@@ -47,12 +47,14 @@ GROUP BY salesrep_numb;
 
 
 5. List only thetotals of the balances for sales reps with more than three customers:
-SELECT sum(balance)
-FROM CUSTOMER c
-INNER JOIN sales_rep sr
-ON sr.salesrep_numb = c.salesrep_numb
-WHERE (SELECT COUNT(*) FROM customer)>3;
+SELECT salesrep_numb, sum(balance)
+FROM CUSTOMER 
+GROUP BY salesrep_numb
+HAVING COUNT(salesrep_numb)>3
+ORDER BY salesrep_numb;
 
+Result:
+06	1309.25
 
 
 
