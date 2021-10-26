@@ -39,14 +39,14 @@ WHERE date='04-Sept-00';
 
 
 7. List the number and name of all sales reps who represent at least one customer who lives on Pine Street:
-SELECT sr.sr_first, sr.sales_repnumb 
-FROM customer c, sales_rep sr
-WHERE c.c_address = 'Pine Street';
+SELECT sr.sr_first, sr.salesrep_numb 
+FROM  sales_rep sr, customer c
+WHERE c.c_street = 'Pine Street';
 
 8. How about the number and name of all sales reps who do not represent any customers who live on Pine Street:
 SELECT sr.sr_first, sr.salesrep_numb 
-FROM sales_rep sr, customer c
-HAVING c.c_street NOT 'Pine Street'; 
+FROM  sales_rep sr, customer c
+WHERE c.c_street != 'Pine Street';
 
 
 9. Find the customer number and name of those customers who currently have an order on file for a "Basketball":
