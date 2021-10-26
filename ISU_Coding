@@ -104,24 +104,15 @@ Result:
 
 
 10. List the number and description of all parts that are currently on order by any customer who is represented by the sales rep whose name is "Mary Jones":
-SELECT p.part_number, p.part_description 
-FROM part p, sales_rep sr 
-WHERE sr.sr_first ='Mary'
-AND sr.sr_last='Jones';
+SELECT part.part_number, part.part_description, part.unit_price, part.units_on_hand, part.warehouse_number, part.item_class
+FROM part, orders, customer, sales_rep, order_line
+WHERE customer.customer_number = orders.customer_number
+AND part.part_number = order_line.part_number
+AND customer.salesrep_numb = sales_rep.salesrep_numb
+AND sales_rep.sr_first = 'Mary' 
+AND sales_rep.sr_last  = 'Jones';
 
-Result:
-PART_ PART_DESCRIPTION    
------ --------------------
-AX12  Iron                
-AZ52  Dartboard           
-BA74  Basketball          
-BH22  Cornpopper          
-BT04  Gas Grill           
-BZ66  Washer              
-CA14  Griddle             
-CB03  Bike                
-CX11  Blender             
-CZ81  Treadmill    
+
 
 
 
