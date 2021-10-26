@@ -44,7 +44,7 @@ FROM  sales_rep sr, customer c
 WHERE c.c_street = 'Pine Street';
 
 8. How about the number and name of all sales reps who do not represent any customers who live on Pine Street:
-SELECT sr.sr_first, sr.salesrep_numb 
+SELECT DISTINCT sr.sr_first, sr.salesrep_numb 
 FROM  sales_rep sr, customer c
 WHERE c.c_street != 'Pine Street';
 
