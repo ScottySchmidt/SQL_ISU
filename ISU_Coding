@@ -47,12 +47,17 @@ AND o.orderdate = '04-Sep-00';
 
 7. List the number and name of all sales reps who represent at least one customer who lives on Pine Street:
 SELECT DISTINCT sr.sr_first, sr.salesrep_numb 
-FROM  sales_rep sr, customer c
+FROM  sales_rep sr
+INNER JOIN customer c
+ON sr.salesrep_numb = c.salesrep_numb
 WHERE c.c_street LIKE '%Pine%';
+
 
 8. How about the number and name of all sales reps who do not represent any customers who live on Pine Street:
 SELECT DISTINCT sr.sr_first, sr.salesrep_numb 
-FROM  sales_rep sr, customer c
+FROM  sales_rep sr
+INNER JOIN customer c
+ON sr.salesrep_numb = c.salesrep_numb
 WHERE c.c_street NOT LIKE '%Pine%';
 
 
