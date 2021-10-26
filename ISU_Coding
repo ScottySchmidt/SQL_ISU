@@ -62,9 +62,12 @@ WHERE c.c_street NOT LIKE '%Pine%';
 
 
 9. Find the customer number and name of those customers who currently have an order on file for a "Basketball":
-SELECT c.customer_number, c.c_first, c.c_last
-FROM customer c, part p
-WHERE p.part_description ='Basketball';
+SELECT customer.customer_number, c_first, c_last,
+order_line.part_number
+FROM customer, orders, order_line
+WHERE customer.customer_number = orders.customer_number
+AND orders.order_number = order_line.order_number
+AND order_line.part_number LIKE 'BA74';
 
 
 10. List the number and description of all parts that are currently on order by any customer who is represented by the sales rep whose name is "Mary Jones":
