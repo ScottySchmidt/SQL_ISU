@@ -50,9 +50,9 @@ HAVING c.c_street NOT 'Pine Street';
 
 
 9. Find the customer number and name of those customers who currently have an order on file for a "Basketball":
-SELECT c.customer_number, c.c_first
+SELECT c.customer_number, c.c_first, c.c_last
 FROM customer c, part p
-WHERE p.part_description ='BA74';
+WHERE p.part_description ='Basketball';
 
 
 10. List the number and description of all parts that are currently on order by any customer who is represented by the sales rep whose name is "Mary Jones":
