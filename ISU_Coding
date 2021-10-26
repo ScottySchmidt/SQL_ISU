@@ -7,6 +7,9 @@ Note: there will be a point deduction for output that includes duplicate lines.
 SELECT order_number, part_number, number_ordered, quotedprice FROM order_line
 WHERE order_number='12498';
 
+Results:
+12498	AZ52	2	12.95
+12498	BA74	4	24.95
 
 2. List all details about parts. The output should be sorted by part number within warehouse number:
 SELECT part_number, part_description, units_on_hand, item_class, warehouse_number, unit_price
@@ -19,8 +22,7 @@ SELECT COUNT(customer_number )
 FROM Customer
 WHERE balance > credit_limit;
 
-Answer is 2.
-
+Results: Count is 2.
 
 4. Find the total of the balances for all the customers for each sales rep:
 SELECT SUM(balance) 
@@ -35,8 +37,6 @@ INNER JOIN sales_rep sr
 ON sr.salesrep_numb = c.salesrep_numb
 WHERE (SELECT COUNT(*) FROM customer)>3;
 
-Note: I solved this problem when looking at this SO article.
-
 
 6. List the total of all orders placed on 04-Sep-00:
 SELECT sum(ol.quotedprice*ol.number_ordered)
@@ -44,6 +44,8 @@ FROM order_line ol
 INNER JOIN orders o
 ON ol.order_number = o.order_number
 AND o.orderdate = '04-Sep-00';
+
+Result: 45.9 is total.
 
 7. List the number and name of all sales reps who represent at least one customer who lives on Pine Street:
 SELECT DISTINCT sr.sr_first, sr.salesrep_numb 
@@ -60,6 +62,11 @@ INNER JOIN customer c
 ON sr.salesrep_numb = c.salesrep_numb
 WHERE c.c_street NOT LIKE '%Pine%';
 
+Result:
+William	06
+Miguel	12
+Mary	03
+
 
 9. Find the customer number and name of those customers who currently have an order on file for a "Basketball":
 SELECT customer.customer_number, c_first, c_last,
@@ -69,6 +76,8 @@ WHERE customer.customer_number = orders.customer_number
 AND orders.order_number = order_line.order_number
 AND order_line.part_number LIKE 'BA74';
 
+Result:
+522	Mary	Nelson	BA74
 
 10. List the number and description of all parts that are currently on order by any customer who is represented by the sales rep whose name is "Mary Jones":
 SELECT p.part_number, p.part_description 
@@ -76,8 +85,23 @@ FROM part p, sales_rep sr
 WHERE sr.sr_first ='Mary'
 AND sr.sr_last='Jones';
 
+Result:
+PART_ PART_DESCRIPTION    
+----- --------------------
+AX12  Iron                
+AZ52  Dartboard           
+BA74  Basketball          
+BH22  Cornpopper          
+BT04  Gas Grill           
+BZ66  Washer              
+CA14  Griddle             
+CB03  Bike                
+CX11  Blender             
+CZ81  Treadmill    
 
------------------------------------------------------
+
+
+--------------------------------------------------------
 SQL CODE (below):
 create table sales_rep
 (salesrep_numb varchar2(3) not null,
