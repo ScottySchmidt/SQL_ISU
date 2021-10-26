@@ -37,10 +37,11 @@ ORDER BY salesrep_numb;
 
 
 6. List the total of all orders placed on 04-Sep-00:
-SELECT SUM(quotedprice)
-FROM orders_line ol,  orders o
-WHERE o.orderdate='04-Sep-00';
-
+SELECT sum(ol.quotedprice*ol.number_ordered)
+FROM order_line ol
+INNER JOIN orders o
+ON ol.order_number = o.order_number
+AND o.orderdate = '04-Sep-00';
 
 7. List the number and name of all sales reps who represent at least one customer who lives on Pine Street:
 SELECT DISTINCT sr.sr_first, sr.salesrep_numb 
