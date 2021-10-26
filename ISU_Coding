@@ -27,7 +27,11 @@ GROUP BY salesrep_numb;
 
 
 5. List only the totals of the balances for sales reps with more than three customers:
-
+SELECT salesrep_numb, sum(balance)
+FROM customer
+WHERE (SELECT COUNT(*) FROM customer)>3
+GROUP BY salesrep_numb
+ORDER BY salesrep_numb;
 
 
 6. List the total of all orders placed on 04-Sep-00:
