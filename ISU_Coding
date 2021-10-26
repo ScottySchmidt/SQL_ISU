@@ -19,6 +19,8 @@ SELECT COUNT(customer_number )
 FROM Customer
 WHERE balance > credit_limit;
 
+Answer is 2.
+
 
 4. Find the total of the balances for all the customers for each sales rep:
 SELECT SUM(balance) 
