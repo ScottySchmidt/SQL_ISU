@@ -35,6 +35,8 @@ INNER JOIN sales_rep sr
 ON sr.salesrep_numb = c.salesrep_numb
 WHERE (SELECT COUNT(*) FROM customer)>3;
 
+Note: I solved this problem when looking at this SO article.
+
 
 6. List the total of all orders placed on 04-Sep-00:
 SELECT sum(ol.quotedprice*ol.number_ordered)
