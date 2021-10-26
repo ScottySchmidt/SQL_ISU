@@ -56,9 +56,11 @@ WHERE p.part_description ='Basketball';
 
 
 10. List the number and description of all parts that are currently on order by any customer who is represented by the sales rep whose name is "Mary Jones":
-SELECT part_number, part_description 
-FROM part, customer
-WHERE customer.salesrep_numb='02';
+SELECT p.part_number, p.part_description 
+FROM part p, sales_rep sr 
+WHERE sr.sr_first ='Mary'
+AND sr.sr_last='Jones';
+
 
 -----------------------------------------------------
 SQL CODE (below):
