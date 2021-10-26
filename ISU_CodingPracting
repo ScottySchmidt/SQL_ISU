@@ -180,6 +180,66 @@ GROUP BY dstate;
 10.	In which years did the total donated exceed the goal for the year?
 
  
+ 
+ 
+ 
+ 
+ 
+ Perform the following SQL queries using your relational schema. 
+
+2.	List the green items of type C
+
+
+
+
+3.	Find the name of green items sold by the recreation dept
+
+
+
+
+4.	Find the items not delivered to the books department
+
+
+
+
+5.	Find the departments that have never sold a Geo positioning system
+
+
+
+
+6.	Find the departments that sell at least four items
+
+
+
+
+
+7.	Find the items not delivered by Nepalese Trading Company
+SELECT iname FROM item
+WHERE iname NOT IN (SELECT iname
+FROM supplier, delivery,
+WHERE spname = ‘Napalese Trading Company’
+AND deliverysnum=supplier.spnum;
+
+
+
+
+8.	Find the items sold by at least 2 departments
+
+
+
+
+9.	Find the items delivered for which there have been no sales
+
+
+
+
+10.	Find the name of the highest paid employee
+
+
+
+11.	Find the names of employees who make less than the average salary
+
+
 
 
 
