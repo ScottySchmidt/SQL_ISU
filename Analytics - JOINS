@@ -85,8 +85,37 @@ ON e.emp_no = dm.dept_no;
  The Cartesian product of the values or two or more sets.
  Particularly useful when the tables in a database are not well connected.
  
+ Lecture Notes Code:
+ SELECT dm.*, d.*
+ FROM departments d
+ CROSS JOIN dept_manager dm
+ WHERE d.dept_no <> dm.dept_no
+ ORDER BY dm.emp_no , d.dept_no;
+ 
+ SELECT e.*, d.*
+ FROM departments d
+ CROSS JOIN dept_manager dm
+ JOIN employees e on dm.emp_no=e.emp_no;
+ 
   ------------------------------------------
+  CROSS JOIN - exercise 1
+Use a CROSS JOIN to return a list with all possible combinations between managers 
+from the dept_manager table and department number 9.
   
+  SOLUTION:
+  SELECT dm.*, d.*
+  FROM departments d
+  CROSS JOIN dept_ dm
+  WHERE d.dept_no ='d009'
+  ORDER BY d.dept_no;
+  
+  ---------------------------
+  CROSS JOIN - exercise 2
+Return a list with the first 10 employees with all the departments they can be assigned to.
+Hint: Don’t use LIMIT; use a WHERE clause.
+
+SOLUTION: 
+
   
 
 
