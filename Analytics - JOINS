@@ -146,9 +146,52 @@ Select all managers’ first and last name, hire date, job title, start date, an
 TIPS AND TRICKS FOR JOINS:
 Look for key columns that are common between tables (not always foreign/primary keys).
 
+SELECT d.dept_name, AVG(salary) as average_salary
+FROM departments d
+JOIN dept_manager = ON d.dept_no = m.dept_no
+JOIN salaries s on m.emp_no = s.emp_no
+GROUP BY d.dept_name
+HAVING average_salary > 60000
+ORDER BY average_salary DESC;
+
 ----------------------------------
+Tips and tricks for joins - exercise
+How many male and how many female managers do we have in the ‘employees’ database?
+
+SOLUTION:
 ----------------------------------
+UNION VS. UNION ALL:
+Used to combine a few SELECT statements into a single output.
+Must SELECT the same number of columns from each table.
+These columns should have the same name, same order, same data types.
+
+SELECT n columns
+FROM table1
+UNION ALL SELECT n columns
+FROM table2;
+
+SELECT e.emp_no, e.first_name, e.last_name, NULL as dept_no, NULL as from_date
+FROM employees_dup e
+WHERE e.emp_no e = 30001
+UNION ALL SELECT
+NULL as emp_np, NULL as first_name, NULL as last_name, m.dept_no, m.from_date
+FROM dept_manager m;
+
+When uniting two identical organized tables:
+*Union displays onlyu distinct values in the output
+    -Uses more computational power
+*UNION all retrieves the duplicates as well
+
+UNION has better results while UNION ALL optimizes performance.
 ----------------------------------
+UNION vs UNION ALL - exercise
+Go forward to the solution and execute the query.
+What do you think is the meaning of the minus sign before subset A in the last row (ORDER BY -a.emp_no DESC)? 
+
+SOLUTION:
+
 ----------------------------------
+
+
 ----------------------------------
 
