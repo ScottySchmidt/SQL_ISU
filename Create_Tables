@@ -1,0 +1,124 @@
+https://quizforexam.com/create-users-table-sql/
+
+Create Users table
+Refer the below schema and create the table USERS.
+
+Column Name	Datatype	Size	Constraint	Constraint name
+User_id	Number	11	Primary key	PK_USERS
+Name	Varchar2	20	 	 
+Address	Varchar2	100	 	 
+Phno	Number	11	 	 
+Emailid	Varchar2	30	 
+
+SOLUTION:
+
+
+
+--------------------------------------------------------------------
+
+https://www.w3resource.com/mysql-exercises/create-table-exercises/index.php
+
+1. Write a SQL statement to create a simple table countries including columns country_id,country_name and region_id.
+
+
+
+
+2. Write a SQL statement to create a simple table countries including columns country_id,country_name and region_id which is already exists.
+
+
+
+
+3. Write a SQL statement to create the structure of a table dup_countries similar to countries.
+
+
+
+
+
+
+4. Write a SQL statement to create a duplicate copy of countries table including structure and data by name dup_countries.
+
+
+
+
+
+
+5. Write a SQL statement to create a table countries set a constraint NULL.
+
+
+
+
+
+6. Write a SQL statement to create a table named jobs including columns job_id, job_title, min_salary, max_salary and 
+check whether the max_salary amount exceeding the upper limit 25000.
+
+
+
+
+
+7. Write a SQL statement to create a table named countries including columns country_id, country_name and region_id
+and make sure that no countries except Italy, India and China will be entered in the table.
+
+
+
+
+8. Write a SQL statement to create a table named job_histry including columns employee_id, start_date, end_date, job_id and department_id
+and make sure that the value against column end_date will be entered at the time of insertion to the format like '--/--/----'.
+
+
+
+
+
+9. Write a SQL statement to create a table named countries including columns country_id,country_name and region_id 
+and make sure that no duplicate data against column country_id will be allowed at the time of insertion.
+
+
+
+
+
+10. Write a SQL statement to create a table named jobs including columns job_id, job_title, min_salary and max_salary, 
+and make sure that, the default value for job_title is blank and min_salary is 8000 and max_salary is NULL will be entered automatically at the time of insertion if no value assigned for the specified columns.
+
+
+
+
+11. Write a SQL statement to create a table named countries including columns country_id, country_name and region_id and make sure that the country_id column 
+will be a key field which will not contain any duplicate data at the time of insertion.
+
+
+
+
+
+12. Write a SQL statement to create a table countries including columns country_id, country_name and region_id and make sure that the column country_id will be unique
+and store an auto incremented value.
+
+
+
+
+
+13. Write a SQL statement to create a table countries including columns country_id, country_name and region_id and make sure that the combination of columns country_id 
+and region_id will be unique.
+
+
+
+
+
+14. Write a SQL statement to create a table job_history including columns employee_id, start_date, end_date, job_id and department_id and make sure that,
+the employee_id column does not contain any duplicate value at the time of insertion and the foreign key column job_id contain only those values which are exists in the jobs table.
+
++------------+--------------+------+-----+---------+-------+
+| Field      | Type         | Null | Key | Default | Extra |
++------------+--------------+------+-----+---------+-------+
+| JOB_ID     | varchar(10)  | NO   | PRI |         |       |
+| JOB_TITLE  | varchar(35)  | NO   |     | NULL    |       |
+| MIN_SALARY | decimal(6,0) | YES  |     | NULL    |       |
+| MAX_SALARY | decimal(6,0) | YES  |     | NULL    |       |
++------------+--------------+------+-----+---------+-------+
+
+
+
+
+15. Write a SQL statement to create a table employees including columns employee_id, first_name, last_name, email, phone_number hire_date, job_id, salary,
+commission, manager_id and department_id and make sure that, the employee_id column does not contain any duplicate value at the time of insertion
+and the foreign key columns combined by department_id and manager_id columns contain only those unique combination values,
+which combinations are exists in the departments table.
+Assume the structure of departments table below.
