@@ -1,3 +1,4 @@
 SELECT e.first_name, e.last_name
-FROM employeees e
+FROM employees e
 WHERE e.emp_no IN (SELECT dm.emo_no FROM dept_manager);
+
