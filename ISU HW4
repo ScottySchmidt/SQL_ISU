@@ -6,36 +6,36 @@ CREATE TABLE department
 (
 Dept# INT PRIMARY KEY NOT NULL,
 Dept_name varchar(20) NOT NULL,
-Phone INT (10) NOT NULL
+Phone INT NOT NULL
 );
 
 CREATE TABLE major
 (
-Major# INT PRIMARY KEY NOT NULL,
+Major# PRIMARY KEY NOT NULL,
 Major_name varchar(20) NOT NULL
 );
 
 CREATE TABLE student
 (
-Student# INT PRIMARY KEY NOT NULL,
+Student# PRIMARY KEY NOT NULL,
 Student_name varchar(20) NOT NULL,
 );
 
 CREATE TABLE course
 (
-Course# INT PRIMARY KEY NOT NULL,
+Course# PRIMARY KEY NOT NULL,
 Title varchar(20) NOT NULL,
 );
 
 CREATE TABLE section
 (
-Section# INT PRIMARY KEY NOT NULL,
+Section# PRIMARY KEY NOT NULL,
 Semester INT NOT NULL,
 Date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 );
 
 CREATE TABLE instructor
 (
-Instructor# INT PRIMARY KEY NOT NULL,
+Instructor# PRIMARY KEY NOT NULL,
 Inst_name varchar(20) NOT NULL
 );
