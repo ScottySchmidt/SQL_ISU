@@ -34,8 +34,14 @@ Semester INT NOT NULL,
 Date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 );
 
-CREATE TABLE instructor
-(
-Instructor# PRIMARY KEY NOT NULL,
-Inst_name varchar(20) NOT NULL
+
+----------------------
+Example: https://www.w3schools.com/sql/sql_primarykey.asp
+
+CREATE TABLE Persons (
+    ID int NOT NULL,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int,
+    CONSTRAINT PK_Person PRIMARY KEY (ID,LastName)
 );
