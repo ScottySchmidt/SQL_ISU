@@ -1,41 +1,6 @@
 IT378 Homework 4
 Write the complete table create statements for the tables in the model below:
---------------------
-
-CREATE TABLE department 
-(
-Dept# PRIMARY KEY NOT NULL,
-Dept_name varchar(20) NOT NULL,
-Phone INT NOT NULL
-);
-
-CREATE TABLE major
-(
-Major# PRIMARY KEY NOT NULL,
-Major_name varchar(20) NOT NULL
-);
-
-CREATE TABLE student
-(
-Student# PRIMARY KEY NOT NULL,
-Student_name varchar(20) NOT NULL,
-);
-
-CREATE TABLE course
-(
-Course# PRIMARY KEY NOT NULL,
-Title varchar(20) NOT NULL,
-);
-
-CREATE TABLE section
-(
-Section# PRIMARY KEY NOT NULL,
-Semester INT NOT NULL,
-Date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-);
-
-
-----------------------
+-----------------------------------------
 Example: https://www.w3schools.com/sql/sql_primarykey.asp
 
 CREATE TABLE Persons (
@@ -44,4 +9,43 @@ CREATE TABLE Persons (
     FirstName varchar(255),
     Age int,
     CONSTRAINT PK_Person PRIMARY KEY (ID,LastName)
+);
+-----------------------------------------
+
+CREATE TABLE department 
+(
+Dept# INT NOT NULL,
+Dept_name varchar(20),
+Phone INT,
+CONSTRAINT Dept_ID PRIMARY KEY(Dept#)
+);
+
+CREATE TABLE major
+(
+Major# INT NOT NULL,
+Major_name varchar(20),
+CONSTRAINT Major_PK PRIMARY KEY(Major#)
+);
+
+CREATE TABLE student
+(
+Student# INT NOT NULL,
+Student_name varchar(20),
+CONSTRAINT Student_PK PRIMARY KEY(Student#)
+);
+
+
+CREATE TABLE section
+(
+Section# INT NOT NULL,
+Semester INT,
+DateTime Date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+CONSTRAINT Section_PK PRIMARY KEY(section#)
+);
+
+CREATE TABLE instructor
+(
+inst_id INT NOT NULL,
+inst_name varchar(20),
+CONSTRAINT inst_PK PRIMARY KEY(inst_id)
 );
