@@ -4,7 +4,7 @@ Write the complete table create statements for the tables in the model below:
 
 CREATE TABLE department 
 (
-Dept# INT PRIMARY KEY NOT NULL,
+Dept# PRIMARY KEY NOT NULL,
 Dept_name varchar(20) NOT NULL,
 Phone INT NOT NULL
 );
