@@ -6,7 +6,7 @@ CREATE TABLE department
 (
 Dept# INT PRIMARY KEY NOT NULL,
 Dept_name varchar(20) NOT NULL,
-Phone INT (10), NOT NULL
+Phone INT (10) NOT NULL
 );
 
 CREATE TABLE major
