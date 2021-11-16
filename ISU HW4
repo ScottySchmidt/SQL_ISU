@@ -1,0 +1,9 @@
+IT378 Homework 4
+Write the complete table create statements for the tables in the model below:
+
+CREATE TABLE department 
+(
+dept# INT PRIMARY KEY NOT NULL,
+dept_name varchar(20) NOT NULL,
+phone INT (10), NOT NULL
+);
