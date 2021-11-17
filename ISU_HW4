@@ -69,7 +69,7 @@ References major(Major#)
 
 CREATE TABLE course
 (
-Course# INT NOT NULL,
+Course# NUMBER(6) NOT NULL,
 Title varchar(20),
 Student# NUMBER NOT NULL,
 
@@ -80,10 +80,10 @@ References student(student#)
 
 CREATE TABLE section
 (
-Section# INT NOT NULL,
-Semester INT,
+Section# NUMBER NOT NULL,
+Semester NUMBER(6),
 DateTime Date NOT NULL,
-Course# INT NOT NULL,
+Course# NUMBER NOT NULL,
 
 CONSTRAINT Section_PK PRIMARY KEY(section#),
 CONSTRAINT Section_FK FOREIGN KEY(Course#),
@@ -92,7 +92,7 @@ References course(course#)
 
 CREATE TABLE instructor
 (
-inst_id NUMBER NOT NULL,
+inst_id NUMBER(6) NOT NULL,
 inst_name varchar(20),
 Section# NUMBER NOT NULL,
 
