@@ -10,14 +10,39 @@ CREATE TABLE Persons (
     Age int,
     CONSTRAINT PK_Person PRIMARY KEY (ID,LastName)
 );
------------------------------------------
 
+CLASS NOTES:
+CREATE TABLE Dept
+(
+DeptName varchar(10) NOT NULL,
+DeptFloor INT(4) NOT NULL,
+DeptPhone char(10) NOT NULL,
+EmpNo Number(6) NOT NULL,
+CONSTRAINT Dept_Name_PK PRIMARY KEY(DeptName);
+CONSTRAINT Dept_Emp_No_FK FOREIGN KEY(EmpNo);
+References Emp(EmpNo)
+);
+
+CREATE TABLE emp
+(
+EMP# Number(6) NOT NULL,
+EmpFName varchar(12) NOT NULL,
+EmpSalary number(10) NOT NULL,
+BossNo  number(6) NOT NULL,
+CONSTRAINT Emp_No_FK PRIMARY KEY(Emp#),
+CONSTRAINT Dept_name_FK FOREIGN KEY(DeptName),
+References Dept(DeptName),
+CONSTRAINT Emp_boss_num FOREIGN KEY(BossNo),
+References Emp(EmpNo)
+);
+
+-----------------------------------------
 CREATE TABLE department 
 (
 Dept# INT NOT NULL,
 Dept_name varchar(20),
 Phone INT,
-CONSTRAINT Dept_ID PRIMARY KEY(Dept#)
+CONSTRAINT Dept_PK PRIMARY KEY(Dept#)
 );
 
 CREATE TABLE major
@@ -25,6 +50,7 @@ CREATE TABLE major
 Major# INT NOT NULL,
 Major_name varchar(20),
 CONSTRAINT Major_PK PRIMARY KEY(Major#)
+CONSTRAINT Dept_FK FOREIGN KEY(Dept#)
 );
 
 CREATE TABLE student
@@ -32,8 +58,16 @@ CREATE TABLE student
 Student# INT NOT NULL,
 Student_name varchar(20),
 CONSTRAINT Student_PK PRIMARY KEY(Student#)
+CONSTRAINT Major_PK PRIMARY KEY(Major#)
 );
 
+CREATE TABLE course
+(
+Course# INT NOT NULL,
+Title varchar(20),
+CONSTRAINT Section_PK PRIMARY KEY(Course#)
+CONSTRAINT Student_FK FOREIGN KEY(Student#)
+);
 
 CREATE TABLE section
 (
