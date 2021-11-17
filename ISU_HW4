@@ -35,8 +35,15 @@ References Dept(DeptName),
 CONSTRAINT Emp_boss_num FOREIGN KEY(BossNo),
 References Emp(EmpNo)
 );
-
 -----------------------------------------
+-----------------------------------------
+DROP TABLE department;
+DROP TABLE major;
+DROP TABLE student;
+DROP TABLE course;
+DROP TABLE section;
+DROP TABLE instructor;
+
 CREATE TABLE department 
 (
 Dept# NUMBER(6) NOT NULL,
@@ -52,7 +59,7 @@ Major_name varchar2(20),
 Dept# NUMBER(6) NOT NULL,
 
 CONSTRAINT Major_PK PRIMARY KEY(Major#),
-CONSTRAINT Dept_FK FOREIGN KEY(Dept#),
+CONSTRAINT Dept_FK FOREIGN KEY(Dept#)
 References department(Dept#)
 );
 
@@ -74,7 +81,7 @@ Title varchar(20),
 Student# NUMBER NOT NULL,
 
 CONSTRAINT Course_PK PRIMARY KEY(Course#),
-CONSTRAINT Course_FK FOREIGN KEY(Student#),
+CONSTRAINT Course_FK FOREIGN KEY(Student#)
 References student(student#)
 );
 
@@ -86,7 +93,7 @@ DateTime Date NOT NULL,
 Course# NUMBER NOT NULL,
 
 CONSTRAINT Section_PK PRIMARY KEY(section#),
-CONSTRAINT Section_FK FOREIGN KEY(Course#),
+CONSTRAINT Section_FK FOREIGN KEY(Course#)
 References course(course#)
 );
 
@@ -97,6 +104,6 @@ inst_name varchar2(20),
 Section# NUMBER(6),
 
 CONSTRAINT instructor_PK PRIMARY KEY(inst_id),
-CONSTRAINT instructor_FK FOREIGN KEY(section#),
-References section(section#)
+CONSTRAINT instructor_FK FOREIGN KEY(Section#)
+References section(Section#)
 );
