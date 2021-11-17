@@ -93,10 +93,10 @@ References course(course#)
 CREATE TABLE instructor
 (
 inst_id NUMBER(6) NOT NULL,
-inst_name varchar(20),
-Section# NUMBER NOT NULL,
+inst_name varchar2(20),
+Section# NUMBER(6),
 
 CONSTRAINT instructor_PK PRIMARY KEY(inst_id),
-CONSTRAINT instructor_FK PRIMARY KEY(section#),
+CONSTRAINT instructor_FK FOREIGN KEY(section#),
 References section(section#)
 );
