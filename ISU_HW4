@@ -73,8 +73,8 @@ Course# INT NOT NULL,
 Title varchar(20),
 Student# NUMBER NOT NULL,
 
-CONSTRAINT Course_PK PRIMARY KEY(Course#)
-CONSTRAINT Course_FK FOREIGN KEY(Student#)
+CONSTRAINT Course_PK PRIMARY KEY(Course#),
+CONSTRAINT Course_FK FOREIGN KEY(Student#),
 References student(student#)
 );
 
@@ -85,8 +85,8 @@ Semester INT,
 DateTime Date NOT NULL,
 Course# INT NOT NULL,
 
-CONSTRAINT Section_PK PRIMARY KEY(section#)
-CONSTRAINT Section_FK FOREIGN KEY(Course#)
+CONSTRAINT Section_PK PRIMARY KEY(section#),
+CONSTRAINT Section_FK FOREIGN KEY(Course#),
 References course(course#)
 );
 
@@ -96,7 +96,7 @@ inst_id NUMBER NOT NULL,
 inst_name varchar(20),
 Section# NUMBER NOT NULL,
 
-CONSTRAINT instructor_PK PRIMARY KEY(inst_id)
-CONSTRAINT instructor_FK PRIMARY KEY(section#)
+CONSTRAINT instructor_PK PRIMARY KEY(inst_id),
+CONSTRAINT instructor_FK PRIMARY KEY(section#),
 References section(section#)
 );
