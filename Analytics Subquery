@@ -1,4 +1,39 @@
+NOTES:
 SELECT e.first_name, e.last_name
 FROM employees e
 WHERE e.emp_no IN (SELECT dm.emo_no FROM dept_manager);
+
+----------------------------
+SQL Subqueries with IN nested inside WHERE - exercise
+Extract the information about all department managers who were hired between the 1st of January 1990 and the 1st of January 1995.
+
+SELECT * FROM dept_mangers HAVING DATE BETWEEN
+
+
+
+---------------------------
+SQL Subqueries with EXISTS-NOT EXISTS nested inside WHERE - exercise
+Select the entire information for all employees whose job title is “Assistant Engineer”. 
+Hint: To solve this exercise, use the 'employees' table
+
+
+
+
+---------------------------
+USING SELECT and FROM NOTES:
+
+SELECT emp_no FROM dept_manager WHERE emp_no=110022;
+SELECT A.* FROM (SELECT e.emp_no AS employee_id,
+MIN(de.dept_no) AS department_code,
+(SELECT emp_no FROM dept_manager 
+WHERE emp_no=110022) AS manager_ID
+FROM employees e
+JOIN dept_emp ON e.emp_no = de.emp_no
+WHERE e.emp_no ON e.emp_no = de.emp_no
+WHERE e.emp_no <= 10020
+GROUP BY e.emp_no
+ORDER BY e.emp_no) AS A
+);
+
+
 
