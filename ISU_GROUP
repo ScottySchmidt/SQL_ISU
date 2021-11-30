@@ -2,11 +2,7 @@ SCOTT SCHMIDT
 IT 378 SQL FINAL GROUP PROJECT
 SOLO DRAFT ATTEMPT
 
-In the final phases of this project, your team will write some queries. The final product you deliver to me should be of professional quality -- something you would be proud to show a recruiter. The requirements for the implementation phase are as follows:
-Implementation:
 A.	Write the DDL to create and populate each table based on the data I’ve provided in the Access database. 
-
-
 
 CREATE TABLE book
 ( 
@@ -96,7 +92,7 @@ Which students have books in need of retrieval? (Hint: these are books with entr
 
 Example of using Subquery from SO:
 Select first_name, last_name, cust_id from customer where cust_id NOT IN ( Select cust_id from transactions)
--------------------------------------------------
+
 SELECT  studentId  FROM  student, vendor WHERE studentId NOT IN ( Select studentId FROM vendor) ; 
 
 
