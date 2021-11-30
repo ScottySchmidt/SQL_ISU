@@ -1,0 +1,116 @@
+SCOTT SCHMIDT 
+IT 378 SQL FINAL GROUP PROJECT
+SOLO DRAFT ATTEMPT
+
+In the final phases of this project, your team will write some queries. The final product you deliver to me should be of professional quality -- something you would be proud to show a recruiter. The requirements for the implementation phase are as follows:
+Implementation:
+A.	Write the DDL to create and populate each table based on the data I’ve provided in the Access database. 
+
+
+
+CREATE TABLE book
+( 
+   isbn number(7) NOT NULL,
+Title varchar(20) NOT NULL,
+
+CONSTRAINT  isbn_book_pk PRIMARY KEY (isbn);
+);
+
+
+CREATE TABLE bookCopy
+(
+  isbn  number(7),
+copyNum number(7),
+price   number(7),
+
+CONSTRAINT isbn_copyNum_fk FOREIGN KEY,
+References book(isbn)
+);
+
+
+CREATE TABLE order(
+  orderNumber  number(7) NOT NULL,
+    isbn  number NOT NULL, 
+
+CONSTRAINT  orderOrderNumberPK PRIMARY KEY(orderNumber),
+CONSTRAINT orderISBNfk FOREIGN KEY(isbn)
+References  book(isbn)
+);
+
+
+
+
+CREATE TABLE seller
+(
+sellerId  number(7),
+orderNumber number(7),
+sellerName varchar(20),
+
+CONSTRAINT sellerSellerIdPK PRIMARY KEY (sellerId)
+);
+
+CREATE TABLE buyer
+(
+
+);
+
+CREATE TABLE payment
+(
+ paymentID   NUMBER(7)  NOT NULL, 
+orderNumber number NOT NULL,
+checkNumber NUMBER (7),
+
+CONSTRAINT  paymentCheckNumberPK_PRIMARY KEY (paymentID);
+CONSTRAINT  paymentOrderNumberFK FOREIGN KEY(orderNumber)
+References  payment(orderNumber);
+);
+
+
+-------------------------------------------------
+What books are required for each course?
+SELECT title course FROM book;
+
+-------------------------------------------------
+What are the ISBN and titles of all the unsold (available) books? 
+SELECT title, isbn FROM book WHERE type= “unsold”;
+
+--/-----------------------------------------------
+Which students have picked up their books?
+SELECT student, title FROM books WHERE type= “sold”;
+
+-------------------------------------------------
+Write a parameter query to find the book copies available for a given Course (where Course Number is input from keyboard.)  List by price.
+SELECT title FROM book WHERE courseNum= inputNum AND type= “unsold” ORDER BY price;
+
+-------------------------------------------------
+List the books in BPUB's inventory and the number of each in stock.
+SELECT title, count(title) FROM inventory WHERE type= “unsold”
+
+-------------------------------------------------
+Which sellers received checks with check numbers between150 & 156?
+SELECT sellers FROM payment WHERE checkNumber > 149 and <157
+
+
+-------------------------------------------------
+Which students have books in need of retrieval? (Hint: these are books with entries in "unretrieved book" that have not been sold to a distributor yet; i.e., do not have an FK value for distributor)
+
+Example of using Subquery from SO:
+Select first_name, last_name, cust_id from customer where cust_id NOT IN ( Select cust_id from transactions)
+-------------------------------------------------
+SELECT  studentId  FROM  student, vendor WHERE studentId NOT IN ( Select studentId FROM vendor) ; 
+
+
+-------------------------------------------------
+What is the average cost of the book copies for each book?
+SELECT  isbn, title, avg( price )  FROM  bookCopy;
+
+
+-------------------------------------------------
+Which students have not sold any books? 
+SELECT studentId  FROM student, book WHERE studentId  NOT IN ( Select studentId FROM  sold);
+
+
+-------------------------------------------------
+Parameter query: Report the least expensive copy of a book whose title is entered. Hint – you will need to look up how to do this.
+SELECT  title  FROM  bookCopy  WHERE  (SELECT min(price) FROM bookCopy); 
+ 
