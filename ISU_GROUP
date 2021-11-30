@@ -94,8 +94,9 @@ AND WHERE bc.ssid NOT IN
 
 --------------------------------------------------
 Which students have picked up their books?
-SELECT student, title FROM books WHERE type= “sold”;
-
+SELECT s.sid
+FROM student s, retrieved_Book rb
+WHERE s.sid=rb.SRBID;
 
 -------------------------------------------------
 Write a parameter query to find the book copies available for a given Course (where Course Number is input from keyboard.)  List by price.
@@ -103,18 +104,19 @@ Write a parameter query to find the book copies available for a given Course (wh
 SELECT bc.title, bc.isbn
 FROM book_Copy bc, book b
 WHERE courseNum= $inputCourseNum
-AND book_type= “unsold” 
+AND book_type= 'A' 
 ORDER BY AskingPrice;
 
 -------------------------------------------------
-List the books in BPUB's inventory and the number of each in stock.
-SELECT title, count(title) 
-FROM inventory 
-WHERE type= “unsold”;
+List the books in BPUB's inventory and the number of each in stock:
+
+SELECT isbn, count(title) 
+FROM book_copy 
+WHERE book= “unsold”;
 
 -------------------------------------------------
 Which sellers received checks with check numbers between150 & 156?
-SELECT SSID
+SELECT p.SSID
 FROM payment p, seller s 
 WHERE p.checkNum > 149 
 AND p.checkNum < 157
@@ -122,17 +124,24 @@ AND p.SSID=s.SSID;
 
 
 -------------------------------------------------
-Which students have books in need of retrieval? (Hint: these are books with entries in "unretrieved book" that have not been sold to a distributor yet; i.e., do not have an FK value for distributor)
+Which students have books in need of retrieval? 
+(Hint: these are books with entries in "unretrieved book" that have not been sold to a distributor yet
+; i.e., do not have an FK value for distributor)
 Example of using Subquery from SO:
 Select first_name, last_name, cust_id from customer where cust_id NOT IN ( Select cust_id from transactions)
 
-SELECT  s.SID FROM  student s, 
-WHERE SSIS NOT IN ( Select studentId FROM distributor); 
+SELECT  s.SID, s.Fname, s.Lname 
+FROM  student s, unretrieved_Books ub
+WHERE s.SID=ub.suid
+AND WHERE DID=Null;
+
 
 
 -------------------------------------------------
 What is the average cost of the book copies for each book?
-SELECT  isbn, avg( AskingPrice )  FROM  Book_Copy;
+SELECT  isbn, avg( AskingPrice ) 
+FROM  Book_Copy
+GROUP BY isbn;
 
 
 -------------------------------------------------
@@ -149,5 +158,6 @@ $isbnInput='isbnInput';
 
 SELECT  bc.isbn, bc.AskingPrice 
 FROM  book_Copy bc  
-WHERE $isbnInput = (SELECT min(AskingPrice) FROM book_Copy ); 
+WHERE AskingPrice = (SELECT min(AskingPrice) FROM book_Copy )
+AND WHERE bc.isbn= $isbnInput; 
  
