@@ -6,7 +6,7 @@ A.	Write the DDL to create and populate each table based on the data I’ve prov
 
 CREATE TABLE book
 ( 
-   isbn number(7) NOT NULL,
+isbn varchar(13) NOT NULL,
 Title varchar(20) NOT NULL,
 
 CONSTRAINT  isbn_book_pk PRIMARY KEY (isbn);
@@ -25,8 +25,8 @@ References book(isbn)
 
 
 CREATE TABLE order(
-  orderNumber  number(7) NOT NULL,
-    isbn  number NOT NULL, 
+ orderNumber  number(7) NOT NULL,
+ isbn  number NOT NULL, 
 
 CONSTRAINT  orderOrderNumberPK PRIMARY KEY(orderNumber),
 CONSTRAINT orderISBNfk FOREIGN KEY(isbn)
@@ -89,7 +89,6 @@ SELECT sellers FROM payment WHERE checkNumber > 149 and <157
 
 -------------------------------------------------
 Which students have books in need of retrieval? (Hint: these are books with entries in "unretrieved book" that have not been sold to a distributor yet; i.e., do not have an FK value for distributor)
-
 Example of using Subquery from SO:
 Select first_name, last_name, cust_id from customer where cust_id NOT IN ( Select cust_id from transactions)
 
