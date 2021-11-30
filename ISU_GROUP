@@ -34,8 +34,6 @@ References  book(isbn)
 );
 
 
-
-
 CREATE TABLE seller
 (
 sellerId  number(7),
@@ -47,7 +45,9 @@ CONSTRAINT sellerSellerIdPK PRIMARY KEY (sellerId)
 
 CREATE TABLE buyer
 (
+BSID varchar(11),
 
+CONSTRAINT buyer_BSID_PK PRIMARY KEY BSID
 );
 
 CREATE TABLE payment
