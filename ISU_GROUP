@@ -86,23 +86,39 @@ SELECT title course FROM book;
 
 -------------------------------------------------
 What are the ISBN and titles of all the unsold (available) books? 
-SELECT title, isbn FROM book WHERE type= “unsold”;
+SELECT bc.title, bc.isbn 
+FROM book_Copy bc, book b
+WHERE b.isbc=b.isbn
+AND WHERE bc.ssid NOT IN 
+  (SELECT SSBID FROM Sold_Book ) ;
 
---/-----------------------------------------------
+--------------------------------------------------
 Which students have picked up their books?
 SELECT student, title FROM books WHERE type= “sold”;
 
+
 -------------------------------------------------
 Write a parameter query to find the book copies available for a given Course (where Course Number is input from keyboard.)  List by price.
-SELECT title FROM book WHERE courseNum= inputNum AND type= “unsold” ORDER BY price;
+
+SELECT bc.title, bc.isbn
+FROM book_Copy bc, book b
+WHERE courseNum= $inputCourseNum
+AND book_type= “unsold” 
+ORDER BY AskingPrice;
 
 -------------------------------------------------
 List the books in BPUB's inventory and the number of each in stock.
-SELECT title, count(title) FROM inventory WHERE type= “unsold”;
+SELECT title, count(title) 
+FROM inventory 
+WHERE type= “unsold”;
 
 -------------------------------------------------
 Which sellers received checks with check numbers between150 & 156?
-SELECT sellers FROM payment WHERE checkNumber > 149 and <157;
+SELECT SSID
+FROM payment p, seller s 
+WHERE p.checkNum > 149 
+AND p.checkNum < 157
+AND p.SSID=s.SSID;
 
 
 -------------------------------------------------
@@ -110,20 +126,28 @@ Which students have books in need of retrieval? (Hint: these are books with entr
 Example of using Subquery from SO:
 Select first_name, last_name, cust_id from customer where cust_id NOT IN ( Select cust_id from transactions)
 
-SELECT  studentId  FROM  student, vendor WHERE studentId NOT IN ( Select studentId FROM vendor) ; 
+SELECT  s.SID FROM  student s, 
+WHERE SSIS NOT IN ( Select studentId FROM distributor); 
 
 
 -------------------------------------------------
 What is the average cost of the book copies for each book?
-SELECT  isbn, title, avg( price )  FROM  bookCopy;
+SELECT  isbn, avg( AskingPrice )  FROM  Book_Copy;
 
 
 -------------------------------------------------
 Which students have not sold any books? 
-SELECT studentId  FROM student, book WHERE studentId  NOT IN ( Select studentId FROM  sold);
+SELECT sid, Fname, Lname  
+FROM student
+WHERE sid  NOT IN ( SELECT SSID FROM Seller  );
 
 
 -------------------------------------------------
 Parameter query: Report the least expensive copy of a book whose title is entered. Hint – you will need to look up how to do this.
-SELECT  title  FROM  bookCopy  WHERE  (SELECT min(price) FROM bookCopy); 
+
+$isbnInput='isbnInput';
+
+SELECT  bc.isbn, bc.AskingPrice 
+FROM  book_Copy bc  
+WHERE $isbnInput = (SELECT min(AskingPrice) FROM book_Copy ); 
  
