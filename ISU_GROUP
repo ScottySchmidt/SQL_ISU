@@ -69,6 +69,17 @@ CONSTRAINT buyer_BSID_PK PRIMARY KEY BSID,
 CONSTRAINT buyer_BSID_FK FOREIGN KEY BSID references Student(SID)
 );
 
+CREATE TABLE distributor(
+DID varchar(11) NOT NULL
+Dname varchar(21) NOT NULL,
+Dstreet varchar(11) NOT NULL,
+Dcity varchar(21) NOT NULL,
+Dsta varchar(3) NOT NULL,
+Dzip varchar(6) NOT NULL
+
+CONSTRAINT distributor_DID_PK PRIMARY KEY(DID);
+);
+
 CREATE TABLE payment
 (
  checkNum   number(7)  NOT NULL, 
@@ -80,6 +91,38 @@ CONSTRAINT  SSID_FK FOREIGN KEY(SSID)
 References  seller(SSID);
 );
 
+CREATE TABLE unretrieved_book
+(
+SUID varchar(11) NOT NULL,
+ISBN varchar(13) NOT NULL,
+SellingPrice number(10) NOT NULL,
+DID varchar(11),
+
+CONSTRAINT  ubook_pk PRIMARY KEY(SUID, ISBN),
+CONSTRAINT  ubook_SUID_PK FOREIGN KEY(SUID)
+references student(SUID),
+
+CONSTRAINT  ubook_DID_PK  FOREIGN KEY(DID)
+references distributor(DID) FOREIGN KEY(DID),
+
+CONSTRAINT  ubook_ISBN_FK  FOREIGN KEY(ISBN)
+references booK_copy(isbn)
+);
+
+CREATE TABLE retrieved_book
+(
+
+);
+
+CREATE TABLE sold_book
+(
+
+);
+
+CREATE TABLE sale 
+(
+
+);
 
 
 -------------------------------------------------
@@ -87,7 +130,7 @@ What books are required for each course?
 SELECT title course FROM book;
 
 -------------------------------------------------
-What are the ISBN and titles of all the unsold (available) books? 
+What are the ISBN and titles of all the unsold (availabtle) books? 
 SELECT bc.title, bc.isbn 
 FROM book_Copy bc, book b
 WHERE b.isbc=b.isbn
