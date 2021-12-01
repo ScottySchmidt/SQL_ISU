@@ -9,14 +9,13 @@ CREATE TABLE student
 SID varchar(12) NOT NULL,
 Fname varchar(20) NOT NULL,
 Lname varchar(20) NOT NULL,
-Suffix varchar(10),
+Suffix varchar(4),
 Street varchar(20) NOT NULL,
 City varchar(20) NOT NULL,
-State varchar(10) NOT NULL,
+State varchar(2) NOT NULL,
 Zip Number(6) NOT NULL
 
-CONSTRAINT student_SID  PRIMARY KEY (SID);
-
+CONSTRAINT student_SID_pk  PRIMARY KEY (SID);
 );
 
 CREATE TABLE book
@@ -56,16 +55,18 @@ References  book(isbn)
 
 CREATE TABLE seller
 (
-SSID number(7),
+SSID varcgar(11) NOT NULL,
 
-CONSTRAINT seller_SSID_PK PRIMARY KEY (SSID)
+CONSTRAINT seller_SSID_PK PRIMARY KEY (SSID),
+CONSTRAINT seller_SSID_FK FOREIGN KEY(SSID) rerferences Student(SID)
 );
 
 CREATE TABLE buyer
 (
-BSID varchar(11),
+BSID varchar(11) NOT NULL,
 
-CONSTRAINT buyer_BSID_PK PRIMARY KEY BSID
+CONSTRAINT buyer_BSID_PK PRIMARY KEY BSID,
+CONSTRAINT buyer_BSID_FK FOREIGN KEY BSID references Student(SID)
 );
 
 CREATE TABLE payment
@@ -78,6 +79,7 @@ CONSTRAINT  checkNum_PK  PRIMARY KEY (checkNum);
 CONSTRAINT  SSID_FK FOREIGN KEY(SSID)
 References  seller(SSID);
 );
+
 
 
 -------------------------------------------------
@@ -112,7 +114,7 @@ List the books in BPUB's inventory and the number of each in stock:
 
 SELECT isbn, count(title) 
 FROM book_copy 
-WHERE book= “unsold”;
+WHERE bookType= 'A';
 
 -------------------------------------------------
 Which sellers received checks with check numbers between150 & 156?
@@ -134,8 +136,6 @@ SELECT  s.SID, s.Fname, s.Lname
 FROM  student s, unretrieved_Books ub
 WHERE s.SID=ub.suid
 AND WHERE DID=Null;
-
-
 
 -------------------------------------------------
 What is the average cost of the book copies for each book?
