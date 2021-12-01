@@ -111,7 +111,13 @@ references booK_copy(isbn)
 
 CREATE TABLE retrieved_book
 (
+SRBID  varchar(11) NOT NULL,
+ISBN   varchar(11) NOT NULL,
+DateRetrieved date NOT NULL,
 
+CONSTRAINT rbook_PK PRIMARY KEY book_copy(SSID, isbn),
+CONSTRAINT rbook_SRBID_FK FOREIGN KEY reference book_copy(SSID),
+CONSTRAINT rbook_ISBN_FK FOREIGN KEY references book_copy(isbn)
 );
 
 CREATE TABLE sold_book
