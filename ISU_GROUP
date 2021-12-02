@@ -148,7 +148,7 @@ CONSTRAINT  sale_BSID_FK   FOREIGN KEY (BSID) references buyer(BSID)
 
 -------------------------------------------------
 What books are required for each course?
-SELECT title course FROM book;
+SELECT courseNum, title, ISBN FROM book;
 
 -------------------------------------------------
 What are the ISBN and titles of all the unsold (availabtle) books? 
@@ -210,7 +210,7 @@ GROUP BY isbn;
 
 -------------------------------------------------
 Which students have not sold any books? 
-SELECT sid, Fname, Lname  
+SELECT DISTINCT sid, Fname, Lname  
 FROM student
 WHERE sid  NOT IN ( SELECT SSID FROM Seller  );
 
