@@ -116,8 +116,8 @@ ISBN   varchar(11) NOT NULL,
 DateRetrieved date NOT NULL,
 
 CONSTRAINT rbook_PK PRIMARY KEY book_copy(SSID, isbn),
-CONSTRAINT rbook_SRBID_FK FOREIGN KEY reference book_copy(SSID),
-CONSTRAINT rbook_ISBN_FK FOREIGN KEY references book_copy(isbn)
+CONSTRAINT rbook_SRBID_FK FOREIGN KEY (SSID) reference book_copy(SSID),
+CONSTRAINT rbook_ISBN_FK FOREIGN KEY (ISBN) references book_copy(isbn)
 );
 
 CREATE TABLE sold_book
@@ -128,10 +128,10 @@ CheckNum varchar(11) NOT NULL,
 SaleNum varchar(11) NOT NULL,
 
 CONSTRAINT sold_book_SBSID_PK  PRIMARY KEY (SSID, ISBN),
-CONSTRAINT sold_book_SBDID_FK  FOREIGN KEY  SSID references booK_copy(SSID),
-CONSTRAINT sold_book_ISBN_FK   FOREIGN KEY  ISBN  references book_copy(ISBN),
-CONSTRAINT sold_booK_CheckNum_FK  FOREIGN KEY CheckNum references  payment(CheckNum),
-CONSTRAINT sold_booK_SaleNum_FK  FOREIGN KEY SaleNum  references  Sale(SaleNum)
+CONSTRAINT sold_book_SBDID_FK  FOREIGN KEY  (SSID) references booK_copy(SSID),
+CONSTRAINT sold_book_ISBN_FK   FOREIGN KEY  (ISBN)  references book_copy(ISBN),
+CONSTRAINT sold_booK_CheckNum_FK  FOREIGN KEY (CheckNum) references  payment(CheckNum),
+CONSTRAINT sold_booK_SaleNum_FK  FOREIGN KEY (SaleNum)  references  Sale(SaleNum)
 );
 
 CREATE TABLE sale 
@@ -140,9 +140,9 @@ SaleNum  varchar(11) NOT NULL,
 SaleDate date NOT NULL, 
 BSID varchar(11) NOT NULL, 
 
-CONSTRAINT sale_SaleNum_PK  PRIMARY KEY,
-CONSTRAINT sale_saleDate_FK FOREIGN KEY references payment(date),
-CONSTRAINT  sale_BSID_FK   FOREIGN KEY references student(SID)
+CONSTRAINT sale_SaleNum_PK  PRIMARY KEY (SaleNum),
+CONSTRAINT sale_saleDate_FK FOREIGN KEY (SaleDate) references payment(date),
+CONSTRAINT  sale_BSID_FK   FOREIGN KEY (BSID) references buyer(BSID)
 );
 
 
