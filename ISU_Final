@@ -1,0 +1,28 @@
+SQL IT378 Final Practice:
+A company wants to maintain a database regarding computer systems, software, and owners. 
+This database can then be used to check periodically for bootleg software,
+and it can be used to make sure that the latest, greatest version of software packages get to all owners.  Each computer has only one owner (the person on who’s desk it sits),
+but each software package may be on many computers, and each computer can have many software packages installed. 
+
+
+1.	For each employee, list first name, last name, office number, and the computer ID for each computer owned. Sort in alphabetical order by employee last name:
+SELECT emp_fname, emp_lname, office_no FROM owner ORDER BY emp_lname;
+
+
+2.	Assuming that the software listed is the only software the company is willing to support, what are my choices for database applications? 
+
+3.	List the title and price of all software currently installed. Sort by title.
+
+4.	What is the total cost of software installed on computer 101?
+
+5.	List the first and last name of all employees currently using machines with MS Word installed.
+
+6.	List first and last name of owners who do not have MS Word installed on their machines.
+
+7.	Write a parameter query to find the total cost of software installed on anyone's machine?
+
+8.	List the names of everyone who owns more than 1 computer.
+
+9.	What's the most expensive software supported?
+
+10.	Which owners have the most expensive software installed on their machines?
