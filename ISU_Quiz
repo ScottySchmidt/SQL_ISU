@@ -10,20 +10,14 @@ CONSTRAINT DeptName PRIMARY KEY;
 CREATE TABLE emp
 (
 EmpNo varchar(11) NOT NULL,
+BossNo Number(4),
 DeptName varchar(11) NOT NULL,
 EmpFName varchar(11) NOT NULL,
 EmpLName varchar(11) NOT NULL,
 EmpSalary number(11,2) NOT NULL,
 
-CONSTRAINT emp_EmpNo PRIMARY KEY (EmpNo),
-CONSTRAINT emp_DeptName FOREIGN KEY DeptName References emp(DeptName)
-
-CREATE TABLE BossOf
-(
-EmpNo varchar(11) NOT NULL,
-
-CONSTRAINT BossOf_EmpNo_PK PRIMARY KEY EmpNo References emp(EmpNo),
-CONSTRAINT BossOf_EmpNo_FK FOREIGN KEY EmpNo References emp(EmpNo)
-
+CONSTRAINT emp_EmpNo_PK PRIMARY KEY (EmpNo),
+CONSTRAINT emp_DeptName_FK FOREIGN KEY DeptName References dept(DeptName),
+CONSTRAINT emp_BossNo_FK  FOREIGN KEY references emp(BossNo) 
 )
 );
