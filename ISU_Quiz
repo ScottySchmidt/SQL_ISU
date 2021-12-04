@@ -1,0 +1,29 @@
+CREATE TABLE dept 
+(
+DeptName varchar(11) NOT NULL,
+DeptFloor varchar(11) NOT NULL,
+DeptPhone varchar(11) NOT NULL
+
+CONSTRAINT DeptName PRIMARY KEY;
+);
+
+CREATE TABLE emp
+(
+EmpNo varchar(11) NOT NULL,
+DeptName varchar(11) NOT NULL,
+EmpFName varchar(11) NOT NULL,
+EmpLName varchar(11) NOT NULL,
+EmpSalary number(11,2) NOT NULL,
+
+CONSTRAINT emp_EmpNo PRIMARY KEY (EmpNo),
+CONSTRAINT emp_DeptName FOREIGN KEY DeptName References emp(DeptName)
+
+CREATE TABLE BossOf
+(
+EmpNo varchar(11) NOT NULL,
+
+CONSTRAINT BossOf_EmpNo_PK PRIMARY KEY EmpNo References emp(EmpNo),
+CONSTRAINT BossOf_EmpNo_FK FOREIGN KEY EmpNo References emp(EmpNo)
+
+)
+);
