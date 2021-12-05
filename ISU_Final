@@ -4,60 +4,92 @@ This database can then be used to check periodically for bootleg software,
 and it can be used to make sure that the latest, greatest version of software packages get to all owners.  Each computer has only one owner (the person on who’s desk it sits),
 but each software package may be on many computers, and each computer can have many software packages installed. 
 
-
 1.	For each employee, list first name, last name, office number, and the computer ID for each computer owned. Sort in alphabetical order by employee last name.
-SELECT o.emp_fname, o.emp_o.lname, o.office_no, c.comp_id 
+SELECT o.emp_fname, o.emp_o.emp_lname, o.office_no, c.comp_id 
 FROM owner o, computer c
-WHERE o.emp_id=c.comp_id;
+WHERE o.emp_id=c.comp_id
+ORDER BY o.emp_lname
 
 2.	Assuming that the software listed is the only software the company is willing to support, what are my choices for database applications?
 SELECT SWName, Software_ID 
-FROM software s; 
+FROM software s
+WHERE c.oper_sys LIKE ‘%database%’; 
 
 3.	List the title and price of all software currently installed. Sort by title.
 SELECT s.SWName, s.software_id 
 FROM software s, installed i
-WHERE i.serial_no=s.software_id;
+WHERE i.software_id=s.software_id;
 
 
 
 4.	What is the total cost of software installed on computer 101?
-SELECT total(s.SWprice)
- FROM software s, installed i, computer c
+SELECT comp_id, sum(s.SWprice)
+ FROM software s, installed I, c
 WHERE c.comp_id=101
-AND c.comp_id=i.serial_no
-AND i.serial_no=s.software_ID;
+s.software_id=i.software_id
+ORDER BY c.comp_id
 
 5.	List the first and last name of all employees currently using machines with MS Word installed.
-SELECT o.emp_fname, o.emp_lname
-FROM owner o, installed i, computer c, software s
-WHERE s.SWName= ‘MS Word’;
+SELECT emp_fname, emp_lname
+FROM owner
+WHERE emp_no  IN
+ (SELECT emp_no WHERE 
+FROM owner o, computer c, installed i, software s
+WHERE c.comp_id=i.comp_id
+AND i.software_id=s.software_id
+AND SWName = ‘MS Word’); 
 
 6.	List first and last name of owners who do not have MS Word installed on their machines.
-SELECT o.emp_fname, o.emp_lname
-FROM owner o, software s
-WHERE s.SWName != ‘MS Word’;
+SELECT emp_fname, emp_lname
+FROM owner
+WHERE emp_no NOT IN
+ (SELECT emp_no WHERE 
+FROM owner o, computer c, installed i, software s
+WHERE c.comp_id=i.comp_id
+AND i.software_id=s.software_id
+AND SWName = ‘MS Word’); 
 
 
 7.	Write a parameter query to find the total cost of software installed on anyone's machine?
-SELECT o.emp_id, TOTAL(s.SWprice)
+
+MY ANSWER:
+SELECT sum(s.SWprice)
 FROM owner o, software s, installed I, computer c
-GROUP BY o.emp_id
-ORDER BY o.emp.id;
+WHERE c.comp_id=i.comp_id
+AND i.software_id=s.software_id
+GROUP BY c.comp_id
+ORDER BY c.comp_id;
+
+OFFICIAL ANSWER:
+
+SELECT sum(s.SWprice)
+FROM owner o, software s, installed I, computer c
+WHERE c.comp_id=i.comp_id
+AND i.software_id=s.software_id
+AND comp_id=?;
+
 
 8.	List the names of everyone who owns more than 1 computer.
-SELECT o.emp_fname, o.emp_lname 
-FROM owner o, computer c
-WHERE count(c.comp_ID>1);
+SELECT emp_fname, emp_lname 
+FROM owner 
+WHERE emp_no IS 
+(SELECT emp_no 
+FROM computer
+HAVING count(*)>1);
+
 
 9.	What's the most expensive software supported?
-SELECT SWName, software_ID 
-FROM software 
-      ORDER BY SWprice
-LIMIT 1;
+SELECT software_id, max(SWprice) 
+FROM software
+GROUP BY software_i;
+
 
 10.	Which owners have the most expensive software installed on their machines?
-SELECT s.SWName, s.software_iD
-FROM software s, owner o, computer c, installed i
-WHERE o.emp_id=c.comp_id
-AND c.comp_id=i.serial_no;
+SELECT emp_id, emp_fnane, emp_lname
+FROM OWNER 
+WHERE emp_id IN 
+(SELECT emp_id
+FROM OWNER 
+WHERE computer.comp_id=installed.comp_id
+AND installed.software_id=software.software_id
+HAVING max(SWprice));
